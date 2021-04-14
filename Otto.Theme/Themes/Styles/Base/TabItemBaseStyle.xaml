@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <Style x:Name="TabItemBaseStyle" TargetType="{x:Type TabItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Border
+                        x:Name="Border"
+                        Margin="0,5,3,10"
+                        Padding="10,6,10,6"
+                        CornerRadius="3">
+                        <TextBlock
+                            x:Name="Txt"
+                            FontWeight="DemiBold"
+                            Foreground="{StaticResource ControlForegroundBrush}"
+                            Text="{TemplateBinding Header}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ControlBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger SourceName="Txt" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ControlHoveredBackgroundBrush}" />
+                            <Setter TargetName="Txt" Property="TextDecorations" Value="Underline" />
+                            <Setter TargetName="Border" Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

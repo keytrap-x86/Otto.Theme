@@ -1,0 +1,26 @@
+﻿# --------------------------------------
+Basic\Brushes.xaml
+Basic\Converters.xaml
+Basic\Fonts.xaml
+Basic\Effects.xaml
+# --------------------------------------
+Styles\Base\TextBoxBaseStyle.xaml
+Styles\Base\ButtonBaseStyle.xaml
+Styles\Base\MenuBaseStyle.xaml 
+Styles\Base\ToolTipBaseStyle.xaml
+Styles\Base\CheckBoxBaseStyle.xaml
+Styles\Base\TabItemBaseStyle.xaml
+Styles\Base\TabControlBaseStyle.xaml
+Styles\Base\ComboBoxBaseStyle.xaml
+Styles\Base\PasswordBoxBaseStyle.xaml
+# --------------------------------------
+Styles\TextBox.xaml
+Styles\Button.xaml
+Styles\Window.xaml
+Styles\Menu.xaml
+Styles\ToolTip.xaml
+Styles\CheckBox.xaml
+Styles\TabItem.xaml
+Styles\TabControl.xaml
+Styles\ComboBox.xaml
+Styles\PasswordBox.xaml

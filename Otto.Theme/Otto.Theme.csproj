@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54B04AAF-2FED-478B-8D1D-65873FCE46F7}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>Otto.Theme</RootNamespace>
+    <AssemblyName>Otto.Theme</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>9</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttachedProperties\InfoElement.cs" />
+    <Compile Include="Controls\Border\ClipBorder.cs" />
+    <Compile Include="Controls\Border\NoGapBorder.cs" />
+    <Compile Include="Controls\Drop\DropZone.xaml.cs">
+      <DependentUpon>DropZone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpringPopup\PopupProperties.cs" />
+    <Compile Include="Controls\SpringPopup\SpringPopup.xaml.cs">
+      <DependentUpon>SpringPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpringPopup\SpringPopupService.cs" />
+    <Compile Include="Controls\TextSeparator.xaml.cs">
+      <DependentUpon>TextSeparator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Watermark\WatermarkAdorner.cs" />
+    <Compile Include="Controls\Watermark\WatermarkService.cs" />
+    <Compile Include="Controls\WindowControlButton.xaml.cs">
+      <DependentUpon>WindowControlButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Window\GlowWindow.cs" />
+    <Compile Include="Controls\Window\Window.cs" />
+    <Compile Include="Data\DisposableObject.cs" />
+    <Compile Include="Data\Enum\SkinType.cs" />
+    <Compile Include="Data\GlowWindow\ChangeScope.cs" />
+    <Compile Include="Data\GlowWindow\GlowBitmap.cs" />
+    <Compile Include="Data\GlowWindow\GlowBitmapPart.cs" />
+    <Compile Include="Data\GlowWindow\GlowDrawingContext.cs" />
+    <Compile Include="Data\GlowWindow\GlowEdge.cs" />
+    <Compile Include="Data\HwndWrapper.cs" />
+    <Compile Include="Data\ResourceToken.cs" />
+    <Compile Include="Data\SystemVersionInfo.cs" />
+    <Compile Include="Data\ValueBoxes.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Helpers\DesignerHelper.cs" />
+    <Compile Include="Helpers\GeometryHelper.cs" />
+    <Compile Include="Interactivity\Commands\CloseWindowCommand.cs" />
+    <Compile Include="Interactivity\Commands\ControlCommands.cs" />
+    <Compile Include="Interactivity\Commands\OpenLinkCommand.cs" />
+    <Compile Include="Interactivity\Commands\PushMainWindow2TopCommand.cs" />
+    <Compile Include="Interactivity\Commands\ShutdownAppCommand.cs" />
+    <Compile Include="Themes\Generic.xaml.cs">
+      <DependentUpon>Generic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\SharedResourceDictionnary.cs" />
+    <Compile Include="Themes\Theme.cs" />
+    <Compile Include="Tools\Converter\Boolean2BooleanReConverter.cs" />
+    <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
+    <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\BooleanArr2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\BorderCircularClipConverter.cs" />
+    <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
+    <Compile Include="Tools\Converter\BorderClipConverter.cs" />
+    <Compile Include="Tools\Converter\Color2ChannelAConverter.cs" />
+    <Compile Include="Tools\Converter\Color2HexStrConverter.cs" />
+    <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
+    <Compile Include="Tools\Converter\DivideByTwoConverter.cs" />
+    <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
+    <Compile Include="Tools\Converter\Int2StrConverter.cs" />
+    <Compile Include="Tools\Converter\Object2BooleanConverter.cs" />
+    <Compile Include="Tools\Converter\Object2StringConverter.cs" />
+    <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\Object2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\RectangleCircularConverter.cs" />
+    <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
+    <Compile Include="Tools\Converter\TreeViewItemMarginConverter.cs" />
+    <Compile Include="Tools\Extension\UIElementExtension.cs" />
+    <Compile Include="Tools\Extension\ValueExtension.cs" />
+    <Compile Include="Tools\Helper\DpiHelper.cs" />
+    <Compile Include="Tools\Helper\MathHelper.cs" />
+    <Compile Include="Tools\Helper\ResourceHelper.cs" />
+    <Compile Include="Tools\Helper\ScreenHelper.cs" />
+    <Compile Include="Tools\Helper\VisualHelper.cs" />
+    <Compile Include="Tools\Helper\WindowHelper.cs" />
+    <Compile Include="Tools\Interop\Handle\BitmapHandle.cs" />
+    <Compile Include="Tools\Interop\Handle\CommonHandles.cs" />
+    <Compile Include="Tools\Interop\Handle\HandleCollector.cs" />
+    <Compile Include="Tools\Interop\Handle\IconHandle.cs" />
+    <Compile Include="Tools\Interop\Handle\SafeFileMappingHandle.cs" />
+    <Compile Include="Tools\Interop\Handle\WpfSafeHandle.cs" />
+    <Compile Include="Tools\Interop\InteropMethods.cs" />
+    <Compile Include="Tools\Interop\InteropValues.cs" />
+    <Compile Include="Tools\RegexPatterns.cs" />
+    <Page Include="Controls\Drop\DropZone.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SpringPopup\SpringPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TextSeparator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\WindowControlButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Effects.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SkinDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\ButtonBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\CheckBoxBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\ComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\MenuBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\PasswordBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TabControlBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TabItemBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TextBoxBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\ToolTipBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\ToolTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Fonts\whitneybold.otf" />
+    <Resource Include="Fonts\whitneybook.otf" />
+    <Resource Include="Fonts\whitneybookitalic.otf" />
+    <Resource Include="Fonts\whitneylight.otf" />
+    <Resource Include="Fonts\whitneylightitalic.otf" />
+    <Resource Include="Fonts\whitneymedium.otf" />
+    <Resource Include="Fonts\whitneymediumitalic.otf" />
+    <Resource Include="Fonts\whitneysemibold.otf" />
+    <Resource Include="Fonts\WhitneySemiboldItalic.otf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GlowWindow\bottom.png" />
+    <Resource Include="Resources\Images\GlowWindow\bottomleft.png" />
+    <Resource Include="Resources\Images\GlowWindow\bottomright.png" />
+    <Resource Include="Resources\Images\GlowWindow\cornerbottomleft.png" />
+    <Resource Include="Resources\Images\GlowWindow\cornerbottomright.png" />
+    <Resource Include="Resources\Images\GlowWindow\cornertopleft.png" />
+    <Resource Include="Resources\Images\GlowWindow\cornertopright.png" />
+    <Resource Include="Resources\Images\GlowWindow\left.png" />
+    <Resource Include="Resources\Images\GlowWindow\leftbottom.png" />
+    <Resource Include="Resources\Images\GlowWindow\lefttop.png" />
+    <Resource Include="Resources\Images\GlowWindow\right.png" />
+    <Resource Include="Resources\Images\GlowWindow\rightbottom.png" />
+    <Resource Include="Resources\Images\GlowWindow\righttop.png" />
+    <Resource Include="Resources\Images\GlowWindow\top.png" />
+    <Resource Include="Resources\Images\GlowWindow\topleft.png" />
+    <Resource Include="Resources\Images\GlowWindow\topright.png" />
+    <Content Include="Themes\XamlCombine.exe" />
+    <Resource Include="Themes\XamlCombine.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>$(ProjectDir)Themes\XamlCombine.exe $(ProjectDir)Themes\XamlCombine.txt $(ProjectDir)Themes\Theme.xaml</PreBuildEvent>
+  </PropertyGroup>
+</Project>

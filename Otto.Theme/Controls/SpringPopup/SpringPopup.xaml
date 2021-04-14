@@ -1,0 +1,111 @@
+﻿<Popup
+    x:Class="Otto.Theme.Controls.SpringPopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:Otto.Theme.Tools.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:kt="clr-namespace:Otto.Theme.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="55"
+    d:DesignWidth="150"
+    kt:PopupProperties.HorizontalPlacementAlignment="Center"
+    kt:PopupProperties.VerticalOffset="-12"
+    AllowsTransparency="True"
+    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+    Placement="Top"
+    mc:Ignorable="d">
+    <Popup.Resources>
+        <conv:DivideByTwoConverter x:Key="DivideByTwo" />
+        <Storyboard x:Key="PopupAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="contentControl" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BounceEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="contentControl" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.95" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1.02">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BounceEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="contentControl" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.95" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1.02">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BounceEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Popup.Resources>
+    <ContentControl
+        x:Name="contentControl"
+        Opacity="0.5"
+        RenderTransformOrigin="0.5,0.5">
+        <ContentControl.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard Storyboard="{StaticResource PopupAnimation}" />
+            </EventTrigger>
+        </ContentControl.Triggers>
+        <ContentControl.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform />
+                <SkewTransform />
+                <RotateTransform />
+                <TranslateTransform />
+            </TransformGroup>
+        </ContentControl.RenderTransform>
+        <ContentControl.Style>
+            <Style TargetType="{x:Type ContentControl}">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="MaxWidth" Value="250" />
+                <Setter Property="MaxHeight" Value="50" />
+                <Setter Property="MinHeight" Value="34" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Grid Effect="{DynamicResource EffectShadow3}">
+                                <Border
+                                    x:Name="ShadowBorder"
+                                    Background="{Binding BackgroundBrush}"
+                                    CornerRadius="4" />
+
+                                <ContentPresenter
+                                    x:Name="Label"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Content="{Binding Content}"
+                                    TextElement.Foreground="White"
+                                    TextElement.FontFamily="{TemplateBinding FontFamily}"
+                                    TextElement.FontSize="{TemplateBinding FontSize}" />
+
+                                <Canvas x:Name="Cnv">
+                                    <Path
+                                        x:Name="TopArrow"
+                                        Canvas.Left="{Binding ElementName=ShadowBorder, Path=ActualWidth, Converter={StaticResource DivideByTwo}}"
+                                        Canvas.Top="{Binding ElementName=ShadowBorder, Path=ActualHeight}"
+                                        Width="10"
+                                        Height="6"
+                                        Data="M 0 0 6 6 L 12 0 Z"
+                                        Fill="{Binding ElementName=ShadowBorder, Path=Background}"
+                                        Stretch="Fill"
+                                        Stroke="{Binding ElementName=ShadowBorder, Path=Background}"
+                                        StrokeThickness="2" />
+                                </Canvas>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ContentControl.Style>
+    </ContentControl>
+</Popup>

@@ -1,0 +1,167 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <SolidColorBrush
+        x:Key="DarkestBrush"
+        o:Freeze="True"
+        Color="{DynamicResource DarkestColor}" />
+
+    <SolidColorBrush
+        x:Key="LightPrimaryBrush"
+        o:Freeze="True"
+        Color="{DynamicResource PrimaryLightColor}" />
+    <SolidColorBrush
+        x:Key="PrimaryBrush"
+        o:Freeze="True"
+        Color="{DynamicResource PrimaryColor}" />
+    <SolidColorBrush
+        x:Key="DarkPrimaryBrush"
+        o:Freeze="True"
+        Color="{DynamicResource PrimaryDarkColor}" />
+
+    <SolidColorBrush
+        x:Key="LightSuccessBrush"
+        o:Freeze="True"
+        Color="{DynamicResource SuccessLightColor}" />
+    <SolidColorBrush
+        x:Key="SuccessBrush"
+        o:Freeze="True"
+        Color="{DynamicResource SuccessColor}" />
+    <SolidColorBrush
+        x:Key="DarkSuccessBrush"
+        o:Freeze="True"
+        Color="{DynamicResource SuccessDarkColor}" />
+
+    <SolidColorBrush
+        x:Key="LightInfoBrush"
+        o:Freeze="True"
+        Color="{DynamicResource InfoLightColor}" />
+    <SolidColorBrush
+        x:Key="InfoBrush"
+        o:Freeze="True"
+        Color="{DynamicResource InfoColor}" />
+    <SolidColorBrush
+        x:Key="DarkInfoBrush"
+        o:Freeze="True"
+        Color="{DynamicResource InfoDarkColor}" />
+
+    <SolidColorBrush
+        x:Key="LightErrorBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ErrorLightColor}" />
+    <SolidColorBrush
+        x:Key="ErrorBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ErrorColor}" />
+    <SolidColorBrush
+        x:Key="DarkErrorBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ErrorDarkColor}" />
+
+    <SolidColorBrush
+        x:Key="LightWarningBrush"
+        o:Freeze="True"
+        Color="{DynamicResource WarningLightColor}" />
+    <SolidColorBrush
+        x:Key="WarningBrush"
+        o:Freeze="True"
+        Color="{DynamicResource WarningColor}" />
+    <SolidColorBrush
+        x:Key="DarkWarningBrush"
+        o:Freeze="True"
+        Color="{DynamicResource WarningDarkColor}" />
+
+    <SolidColorBrush
+        x:Key="PrimaryTextBrush"
+        o:Freeze="True"
+        Color="{DynamicResource PrimaryTextColor}" />
+    <SolidColorBrush
+        x:Key="SecondaryTextBrush"
+        o:Freeze="True"
+        Color="{DynamicResource SecondaryTextColor}" />
+    <SolidColorBrush
+        x:Key="ThirdlyTextBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ThirdlyTextColor}" />
+
+    <SolidColorBrush
+        x:Key="LightBackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource BackgroundLightColor}" />
+    <SolidColorBrush
+        x:Key="BackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource BackgroundColor}" />
+    <SolidColorBrush
+        x:Key="DarkBackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource BackgroundDarkColor}" />
+
+    <!--  Border  -->
+    <SolidColorBrush
+        x:Key="ControlBorderBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlBorderColor}" />
+    <SolidColorBrush
+        x:Key="ControlDisabledBorderBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlDisabledBorderColor}" />
+    <SolidColorBrush
+        x:Key="ControlReadOnlyBorderBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlReadOnlyBorderColor}" />
+    <SolidColorBrush
+        x:Key="ControlHoveredBorderBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlHoveredBorderColor}" />
+    <SolidColorBrush
+        x:Key="ControlFocusedBorderBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlFocusedBorderColor}" />
+
+    <!--  Foreground  -->
+    <SolidColorBrush
+        x:Key="ControlForegroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlForegroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlDisabledForegroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlDisabledForegroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlReadOnlyForegroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlReadOnlyForegroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlHoveredForegroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlHoveredForegroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlFocusedForegroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlFocusedForegroundColor}" />
+
+    <!--  Background  -->
+    <SolidColorBrush
+        x:Key="ControlBackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlBackgroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlDisabledBackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlDisabledBackgroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlReadOnlyBackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlReadOnlyBackgroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlHoveredBackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlHoveredBackgroundColor}" />
+    <SolidColorBrush
+        x:Key="ControlFocusedBackgroundBrush"
+        o:Freeze="True"
+        Color="{DynamicResource ControlFocusedBackgroundColor}" />
+</ResourceDictionary>

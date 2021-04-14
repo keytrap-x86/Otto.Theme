@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otto.Theme", "Otto.Theme\Otto.Theme.csproj", "{54B04AAF-2FED-478B-8D1D-65873FCE46F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otto.Theme.Demo", "Otto.Theme.Demo\Otto.Theme.Demo.csproj", "{95E89876-A9B4-4501-9B76-A4FDCC832BB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54B04AAF-2FED-478B-8D1D-65873FCE46F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B04AAF-2FED-478B-8D1D-65873FCE46F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B04AAF-2FED-478B-8D1D-65873FCE46F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B04AAF-2FED-478B-8D1D-65873FCE46F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E89876-A9B4-4501-9B76-A4FDCC832BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E89876-A9B4-4501-9B76-A4FDCC832BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E89876-A9B4-4501-9B76-A4FDCC832BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E89876-A9B4-4501-9B76-A4FDCC832BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6416E25A-9D09-4646-9558-6FF60E3E5EEA}
+	EndGlobalSection
+EndGlobal
