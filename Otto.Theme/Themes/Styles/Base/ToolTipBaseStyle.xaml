@@ -5,7 +5,6 @@
         <Setter Property="HasDropShadow" Value="True" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontFamily" Value="{StaticResource Whitney}" />
-        <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{StaticResource ControlForegroundBrush}" />
         <Setter Property="MaxWidth" Value="350" />
         <Setter Property="Template">

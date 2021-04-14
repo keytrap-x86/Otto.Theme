@@ -16,8 +16,8 @@
     </ContextMenu>
 
     <Style TargetType="{x:Type MenuItem}">
-        <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+        <Setter Property="FontSize" Value="13"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
@@ -38,6 +38,7 @@
                                 Margin="10,6,10,6"
                                 Content="{TemplateBinding Header}"
                                 RecognizesAccessKey="True"
+                                TextElement.FontSize="{TemplateBinding FontSize}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </StackPanel>
                     </Border>

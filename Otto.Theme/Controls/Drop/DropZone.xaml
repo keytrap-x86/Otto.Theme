@@ -59,7 +59,6 @@
                                 <TextBlock.RenderTransform>
                                     <TransformGroup>
                                         <TranslateTransform x:Name="Position" />
-                                        <ScaleTransform x:Name="Scale" />
                                     </TransformGroup>
                                 </TextBlock.RenderTransform>
                             </TextBlock>
@@ -85,22 +84,6 @@
                                 <Setter TargetName="rect" Property="StrokeDashArray" Value="1000" />
                                 <Setter TargetName="rect" Property="StrokeThickness" Value="3" />
                                 <Setter TargetName="TxtDropZoneText" Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=TextWhenAllowedExtension, TargetNullValue='Click or drop files here'}" />
-                                <MultiTrigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Scale" Storyboard.TargetProperty="(ScaleTransform.ScaleX)">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0.95" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1.02" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1" />
-                                            </DoubleAnimationUsingKeyFrames>
-                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Scale" Storyboard.TargetProperty="(ScaleTransform.ScaleY)">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0.95" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1.02" />
-                                                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1" />
-                                            </DoubleAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </MultiTrigger.EnterActions>
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
