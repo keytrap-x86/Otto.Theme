@@ -4,15 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:kt="clr-namespace:Otto.Theme.Controls;assembly=Otto.Theme"
-    xmlns:wm="clr-namespace:Otto.Theme.Controls.Watermark;assembly=Otto.Theme"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wm="clr-namespace:Otto.Theme.Controls.Watermark;assembly=Otto.Theme"
     Title="MainWindow"
     Width="743"
     Height="396"
     MaxHeight="430"
-    FontSize="14"
     Background="{DynamicResource BackgroundBrush}"
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+    FontSize="14"
     ResizeMode="CanMinimize"
     Style="{StaticResource GlowWindow}"
     Topmost="True"
@@ -26,6 +26,11 @@
             DockPanel.Dock="Top"
             Foreground="{DynamicResource PrimaryBrush}"
             Text="Demo" />
+        <ProgressBar
+            Width="350"
+            DockPanel.Dock="Top"
+            Foreground="{DynamicResource SuccessBrush}"
+            Value="55" Height="16" Margin="194,0,193,0" />
         <kt:DropZone
             Width="290"
             Height="140"
@@ -71,7 +76,10 @@
                 Content="WarningFilled"
                 Style="{StaticResource WarningFilled}" />
 
-            <TextBox Width="200" wm:WatermarkService.Watermark="Watermark" HorizontalContentAlignment="Stretch" />
+            <TextBox
+                Width="200"
+                HorizontalContentAlignment="Stretch"
+                wm:WatermarkService.Watermark="Watermark" />
         </StackPanel>
     </DockPanel>
 </kt:GlowWindow>

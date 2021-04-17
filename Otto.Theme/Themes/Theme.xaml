@@ -472,6 +472,62 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style x:Key="ProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type ProgressBar}">
+          <Grid x:Name="TemplateRoot">
+            <kt:ClipBorder Margin="1" Background="{DynamicResource ControlBackgroundBrush}" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" CornerRadius="4" />
+            <kt:ClipBorder x:Name="PART_Track" CornerRadius="4" />
+            <Grid x:Name="PART_Indicator" Margin="4" HorizontalAlignment="Left" Background="{x:Null}" ClipToBounds="True">
+              <kt:ClipBorder x:Name="Indicator" Background="{x:Null}" CornerRadius="2" />
+              <kt:ClipBorder x:Name="Animation" Background="{TemplateBinding Foreground}" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" CornerRadius="2" RenderTransformOrigin="0.5,0.5">
+                <kt:ClipBorder.RenderTransform>
+                  <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                  </TransformGroup>
+                </kt:ClipBorder.RenderTransform>
+              </kt:ClipBorder>
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Determinate" />
+                <VisualState x:Name="Indeterminate">
+                  <Storyboard RepeatBehavior="Forever">
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                      <EasingDoubleKeyFrame KeyTime="0" Value="0.25" />
+                      <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25" />
+                      <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25" />
+                    </DoubleAnimationUsingKeyFrames>
+                    <PointAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
+                      <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5" />
+                      <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5" />
+                      <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5" />
+                    </PointAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+              <Setter TargetName="TemplateRoot" Property="LayoutTransform">
+                <Setter.Value>
+                  <RotateTransform Angle="-90" />
+                </Setter.Value>
+              </Setter>
+            </Trigger>
+            <Trigger Property="IsIndeterminate" Value="True">
+              <Setter TargetName="Indicator" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
   <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}" />
   <Style x:Key="Info" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
     <Setter Property="Foreground" Value="{DynamicResource InfoBrush}" />
@@ -959,7 +1015,7 @@
         <ControlTemplate TargetType="{x:Type MenuItem}">
           <Border x:Name="Bd" Uid="Border_38" Margin="10,5,10,5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="2" SnapsToDevicePixels="True">
             <StackPanel>
-              <ContentPresenter x:Name="ContentPresenter" Uid="ContentPresenter_33" Grid.Column="1" Margin="10,6,10,6" Content="{TemplateBinding Header}" RecognizesAccessKey="True" TextElement.FontSize="{TemplateBinding FontSize}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+              <ContentPresenter x:Name="ContentPresenter" Uid="ContentPresenter_33" Grid.Column="1" Margin="10,6,10,6" Content="{TemplateBinding Header}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" TextElement.FontSize="{TemplateBinding FontSize}" />
             </StackPanel>
           </Border>
           <ControlTemplate.Triggers>
@@ -978,6 +1034,7 @@
     </Setter>
   </Style>
   <Style BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="{x:Type ComboBox}" />
+  <Style BasedOn="{StaticResource ProgressBarBaseStyle}" TargetType="{x:Type ProgressBar}" />
   <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
     <Setter Property="SnapsToDevicePixels" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />

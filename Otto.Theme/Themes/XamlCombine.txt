@@ -13,6 +13,7 @@ Styles\Base\TabItemBaseStyle.xaml
 Styles\Base\TabControlBaseStyle.xaml
 Styles\Base\ComboBoxBaseStyle.xaml
 Styles\Base\PasswordBoxBaseStyle.xaml
+Styles\Base\ProgressBarBaseStyle.xaml
 # --------------------------------------
 Styles\TextBox.xaml
 Styles\Button.xaml
@@ -24,3 +25,4 @@ Styles\TabItem.xaml
 Styles\TabControl.xaml
 Styles\ComboBox.xaml
 Styles\PasswordBox.xaml
+Styles\ProgressBar.xaml

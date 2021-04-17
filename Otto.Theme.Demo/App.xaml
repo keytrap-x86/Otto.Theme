@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="pack://application:,,,/Otto.Theme;component/Themes/SkinDefault.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Otto.Theme;component/Themes/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
