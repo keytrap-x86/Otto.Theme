@@ -5,25 +5,37 @@
     xmlns:controls="clr-namespace:Otto.Theme.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DataContext="{d:DesignInstance Type=controls:TextSeparator}"
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
     mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <Canvas
+            Grid.Column="0"
+            Width="10"
+            Height="{Binding RelativeSource={RelativeSource Self}, Path=Width}"
+            Margin="0,0,5,0">
+            <Ellipse
+                Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Canvas}, Path=Width}"
+                Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Canvas}, Path=Width}"
+                Fill="{DynamicResource PrimaryBrush}" />
+        </Canvas>
         <TextBlock
-            Margin="10,0,10,0"
+            Grid.Column="1"
+            Margin="0,0,10,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Foreground="{DynamicResource BrushBlue}"
+            FontSize="18"
+            Foreground="{StaticResource PrimaryBrush}"
             Text="{Binding Header}" />
         <Rectangle
-            Grid.Column="1"
+            Grid.Column="2"
             Height="1"
             Margin="0,5,0,0"
             VerticalAlignment="Center"
-            Fill="{DynamicResource BrushBorderLight}" />
+            Fill="{StaticResource ControlBorderBrush}" />
     </Grid>
 </UserControl>

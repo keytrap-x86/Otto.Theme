@@ -218,5 +218,7 @@
         <Setter Property="ActiveGlowColor" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="InactiveGlowColor" Value="{DynamicResource BackgroundLightColor}" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
     </Style>
 </ResourceDictionary>
