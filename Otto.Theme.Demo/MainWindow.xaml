@@ -10,7 +10,6 @@
     Width="743"
     Height="396"
     MaxHeight="430"
-    Background="{DynamicResource BackgroundBrush}"
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
     FontSize="14"
     ResizeMode="CanMinimize"
