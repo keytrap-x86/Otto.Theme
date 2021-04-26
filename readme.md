@@ -13,4 +13,5 @@ Install-Package Otto.Theme.WPF
 
 ## Preview
 
-[]
+https://user-images.githubusercontent.com/17864005/116119676-fa674100-a6be-11eb-8452-4890f07b949e.MP4
+
