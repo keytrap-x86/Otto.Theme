@@ -7,109 +7,109 @@ using System.Windows.Media;
 namespace Otto.Theme.Controls
 {
     /// <summary>
-    ///     Class that provides the SpringPopup attached property
+    ///     Class that provides the Popup attached property
     /// </summary>
-    public class SpringPopupService : DependencyObject, IDisposable
+    public class PopupService : DependencyObject, IDisposable
     {
-        public static SpringPopup Popup;
+        public static Pop Pop;
 
         /// <summary>
-        ///     SpringPopup Attached Dependency Property
+        ///     Popup Attached Dependency Property
         /// </summary>
-        public static readonly DependencyProperty SpringPopupProperty = DependencyProperty.RegisterAttached(
-            "SpringPopup",
+        public static readonly DependencyProperty PopupProperty = DependencyProperty.RegisterAttached(
+            nameof(Controls.Pop),
             typeof(object),
-            typeof(SpringPopupService),
-            new FrameworkPropertyMetadata(null, OnSpringPopupChanged));
+            typeof(PopupService),
+            new FrameworkPropertyMetadata(null, OnPopChanged));
 
         /// <summary>
-        ///     Gets the SpringPopup property.  This dependency property indicates the SpringPopup for the control.
+        ///     Gets the Popup property.  This dependency property indicates the Popup for the control.
         /// </summary>
         /// <param name="d"><see cref="DependencyObject" /> to get the property from</param>
-        /// <returns>The value of the SpringPopup property</returns>
-        public static object GetSpringPopup(DependencyObject d)
+        /// <returns>The value of the Popup property</returns>
+        public static object GetPop(DependencyObject d)
         {
-            return d.GetValue(SpringPopupProperty);
+            return d.GetValue(PopupProperty);
         }
 
         /// <summary>
-        ///     Sets the SpringPopup property.  This dependency property indicates the SpringPopup for the control.
+        ///     Sets the Popup property.  This dependency property indicates the Popup for the control.
         /// </summary>
         /// <param name="d"><see cref="DependencyObject" /> to set the property on</param>
         /// <param name="value">value of the property</param>
-        public static void SetSpringPopup(DependencyObject d, object value)
+        public static void SetPop(DependencyObject d, object value)
         {
-            d.SetValue(SpringPopupProperty, value);
+            d.SetValue(PopupProperty, value);
         }
 
         #region PopupBackgroundBrush
 
         /// <summary>
-        ///     SpringPopupBackgroundBrush Attached Dependency Property
+        ///     PopupBackgroundBrush Attached Dependency Property
         /// </summary>
-        public static readonly DependencyProperty SpringPopupBackgroundBrushProperty = DependencyProperty.RegisterAttached(
-            "SpringPopupBackgroundBrush",
+        public static readonly DependencyProperty PopBackgroundBrushProperty = DependencyProperty.RegisterAttached(
+            "PopBackgroundBrush",
             typeof(Brush),
-            typeof(SpringPopupService),
+            typeof(PopupService),
             new FrameworkPropertyMetadata(new BrushConverter().ConvertFromString("#18191C")));
 
         /// <summary>
-        ///     Gets the SpringPopupBackgroundBrush property.  This dependency property indicates the SpringPopupBackgroundBrush for the control.
+        ///     Gets the PopupBackgroundBrush property.  This dependency property indicates the PopupBackgroundBrush for the control.
         /// </summary>
         /// <param name="d"><see cref="DependencyObject" /> to get the property from</param>
-        /// <returns>The value of the SpringPopupBackgroundBrush property</returns>
-        public static Brush GetSpringPopupBackgroundBrush(DependencyObject d)
+        /// <returns>The value of the PopupBackgroundBrush property</returns>
+        public static Brush GetPopBackgroundBrush(DependencyObject d)
         {
-            return (Brush)d.GetValue(SpringPopupBackgroundBrushProperty);
+            return (Brush)d.GetValue(PopBackgroundBrushProperty);
         }
 
         /// <summary>
-        ///     Sets the SpringPopupBackgroundBrush property.  This dependency property indicates the SpringPopupBackgroundBrush for the control.
+        ///     Sets the PopupBackgroundBrush property.  This dependency property indicates the PopupBackgroundBrush for the control.
         /// </summary>
         /// <param name="d"><see cref="DependencyObject" /> to set the property on</param>
         /// <param name="value">value of the property</param>
-        public static void SetSpringPopupBackgroundBrush(DependencyObject d, Brush value)
+        public static void SetPopBackgroundBrush(DependencyObject d, Brush value)
         {
-            d.SetValue(SpringPopupBackgroundBrushProperty, value);
+            d.SetValue(PopBackgroundBrushProperty, value);
         }
 
         #endregion PopupBackgroundBrush
 
         /// <summary>
-        ///     Handles changes to the SpringPopup property.
+        ///     Handles changes to the Popup property.
         /// </summary>
         /// <param name="d"><see cref="DependencyObject" /> that fired the event</param>
         /// <param name="e">A <see cref="DependencyPropertyChangedEventArgs" /> that contains the event data.</param>
-        private static void OnSpringPopupChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnPopChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = (UIElement)d;
 
             control.MouseEnter += (s, e) =>
            {
-               var content = d.GetValue(SpringPopupProperty);
+               var content = d.GetValue(PopupProperty);
 
                if (content is string)
                {
                    content = BuildDefaultTextBlock(content?.ToString());
                }
 
-               Popup = new SpringPopup
+               Pop = new Pop
                {
-                   BackgroundBrush = control.GetValue(SpringPopupBackgroundBrushProperty) as Brush,
+                   BackgroundBrush = control.GetValue(PopBackgroundBrushProperty) as Brush,
                    Content = content,
                    PopupAnimation = PopupAnimation.None,
                    PlacementTarget = control
                };
 
-               if (Popup != null)
-                   Popup.IsOpen = true;
+               if (Pop != null)
+                   Pop.IsOpen = true;
            };
 
             control.MouseLeave += (s, e) =>
             {
-                if (Popup != null)
-                    Popup.IsOpen = false;
-                Popup = null;
+                if (Pop != null)
+                    Pop.IsOpen = false;
+                Pop = null;
             };
         }
 
@@ -145,9 +145,9 @@ namespace Otto.Theme.Controls
 
         public void Dispose()
         {
-            if (Popup != null)
-                Popup.IsOpen = false;
-            Popup = null;
+            if (Pop != null)
+                Pop.IsOpen = false;
+            Pop = null;
         }
 
         #endregion Helper Methods

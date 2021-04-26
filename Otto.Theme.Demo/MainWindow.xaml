@@ -8,7 +8,7 @@
     xmlns:wm="clr-namespace:Otto.Theme.Controls.Watermark;assembly=Otto.Theme"
     Title="MainWindow"
     Width="743"
-    Height="396"
+    Height="416"
     MaxHeight="430"
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
     FontSize="14"
@@ -29,49 +29,50 @@
             Width="350"
             DockPanel.Dock="Top"
             Foreground="{DynamicResource SuccessBrush}"
-            Value="55" Height="16" Margin="194,0,193,0" />
+            Value="55" Height="26" Margin="194,0,193,0" />
         <kt:DropZone
             Width="290"
             Height="140"
             Margin="10,60,10,0"
-            kt:SpringPopupService.SpringPopup="{Binding RelativeSource={RelativeSource Self}, Path=AllowedExtensions}"
+            kt:PopupService.Pop="{Binding RelativeSource={RelativeSource Self}, Path=AllowedExtensions}"
             AllowedExtensions=".mp4, .png"
             DockPanel.Dock="Top"
             TextWhenAllowedExtension="Drop the file baby ♥"
             TextWhenDisallowedExtension="Nope, can't take this kind of file :'(" />
-        <StackPanel
+        <WrapPanel
+            
             Margin="15"
             HorizontalAlignment="Center"
             DockPanel.Dock="Top"
             Orientation="Horizontal">
             <Button
                 Margin="0,0,10,0"
-                kt:SpringPopupService.SpringPopup="Hey"
-                kt:SpringPopupService.SpringPopupBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
+                kt:PopupService.Pop="Hey"
+                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
                 Content="Info"
                 Style="{StaticResource Info}" />
             <Button
                 Margin="0,0,10,0"
-                kt:SpringPopupService.SpringPopup="Hey"
-                kt:SpringPopupService.SpringPopupBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
+                kt:PopupService.Pop="Hey"
+                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
                 Content="InfoFilled"
                 Style="{StaticResource InfoFilled}" />
             <Button
                 Margin="0,0,10,0"
-                kt:SpringPopupService.SpringPopup="Hey"
-                kt:SpringPopupService.SpringPopupBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
+                kt:PopupService.Pop="Hey"
+                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
                 Content="ErrorFilled"
                 Style="{StaticResource ErrorFilled}" />
             <Button
                 Margin="0,0,10,0"
-                kt:SpringPopupService.SpringPopup="Hey"
-                kt:SpringPopupService.SpringPopupBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
+                kt:PopupService.Pop="Hey"
+                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
                 Content="SuccessFilled"
                 Style="{StaticResource SuccessFilled}" />
             <Button
                 Margin="0,0,10,0"
-                kt:SpringPopupService.SpringPopup="Hey"
-                kt:SpringPopupService.SpringPopupBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
+                kt:PopupService.Pop="Hey"
+                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
                 Content="WarningFilled"
                 Style="{StaticResource WarningFilled}" />
 
@@ -79,6 +80,10 @@
                 Width="200"
                 HorizontalContentAlignment="Stretch"
                 wm:WatermarkService.Watermark="Watermark" />
-        </StackPanel>
+
+            <ComboBox Width="150" Margin="0,10,0,0" >
+                <ComboBoxItem Content="Item 1"/>
+            </ComboBox>
+        </WrapPanel>
     </DockPanel>
 </kt:GlowWindow>

@@ -11,7 +11,7 @@ namespace Otto.Theme.Controls
     /// </summary>
     /// <seealso cref="Popup"/>
     /// <seealso cref="DependencyProperty"/>
-    public static class PopupProperties
+    public static class PopProperties
     {
         #region Properties
 
@@ -21,16 +21,16 @@ namespace Otto.Theme.Controls
         /// Attached <see cref="DependencyProperty"/>. This property
         /// registers (<b>true</b>) or unregisters (<b>false</b>) a
         /// <see cref="Popup"/> from the popup monitoring mechanism
-        /// used internally by <see cref="PopupProperties"/> to keep
+        /// used internally by <see cref="PopProperties"/> to keep
         /// the <see cref="Popup"/> in synchrony with the
-        /// <see cref="PopupProperties"/>' attached properties. A
+        /// <see cref="PopProperties"/>' attached properties. A
         /// <see cref="Popup"/> will be automatically unregistered from
         /// this mechanism after it is unloaded.
         /// </summary>
         /// <seealso cref="Popup"/>
         private static readonly DependencyProperty IsMonitoringStateProperty
             = DependencyProperty.RegisterAttached("IsMonitoringState",
-                typeof(bool), typeof(PopupProperties),
+                typeof(bool), typeof(PopProperties),
                 new FrameworkPropertyMetadata(false,
                     FrameworkPropertyMetadataOptions.None,
                     new PropertyChangedCallback(IsMonitoringStatePropertyChanged)));
@@ -77,7 +77,7 @@ namespace Otto.Theme.Controls
 
         public static readonly DependencyProperty HorizontalPlacementAlignmentProperty
             = DependencyProperty.RegisterAttached("HorizontalPlacementAlignment",
-                typeof(AlignmentX), typeof(PopupProperties),
+                typeof(AlignmentX), typeof(PopProperties),
                 new FrameworkPropertyMetadata(AlignmentX.Left,
                     FrameworkPropertyMetadataOptions.None,
                     new PropertyChangedCallback(HorizontalPlacementAlignmentPropertyChanged)),
@@ -116,7 +116,7 @@ namespace Otto.Theme.Controls
 
         public static readonly DependencyProperty VerticalPlacementAlignmentProperty
             = DependencyProperty.RegisterAttached("VerticalPlacementAlignment",
-                typeof(AlignmentY), typeof(PopupProperties),
+                typeof(AlignmentY), typeof(PopProperties),
                 new FrameworkPropertyMetadata(AlignmentY.Top,
                     FrameworkPropertyMetadataOptions.None,
                     new PropertyChangedCallback(VerticalPlacementAlignmentPropertyChanged)),
@@ -155,7 +155,7 @@ namespace Otto.Theme.Controls
 
         public static readonly DependencyProperty HorizontalOffsetProperty
             = DependencyProperty.RegisterAttached("HorizontalOffset",
-                typeof(double), typeof(PopupProperties),
+                typeof(double), typeof(PopProperties),
                 new FrameworkPropertyMetadata(0d,
                     FrameworkPropertyMetadataOptions.None,
                     new PropertyChangedCallback(HorizontalOffsetPropertyChanged)),
@@ -195,7 +195,7 @@ namespace Otto.Theme.Controls
 
         public static readonly DependencyProperty VerticalOffsetProperty
             = DependencyProperty.RegisterAttached("VerticalOffset",
-                typeof(double), typeof(PopupProperties),
+                typeof(double), typeof(PopProperties),
                 new FrameworkPropertyMetadata(0d,
                     FrameworkPropertyMetadataOptions.None,
                     new PropertyChangedCallback(VerticalOffsetPropertyChanged)),

@@ -55,11 +55,11 @@
     <Compile Include="Controls\Drop\DropZone.xaml.cs">
       <DependentUpon>DropZone.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SpringPopup\PopupProperties.cs" />
-    <Compile Include="Controls\SpringPopup\SpringPopup.xaml.cs">
+    <Compile Include="Controls\PopupService\PopProperties.cs" />
+    <Compile Include="Controls\PopupService\SpringPopup.xaml.cs">
       <DependentUpon>SpringPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SpringPopup\SpringPopupService.cs" />
+    <Compile Include="Controls\PopupService\PopupService.cs" />
     <Compile Include="Controls\TextSeparator.xaml.cs">
       <DependentUpon>TextSeparator.xaml</DependentUpon>
     </Compile>
@@ -137,7 +137,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\SpringPopup\SpringPopup.xaml">
+    <Page Include="Controls\PopupService\SpringPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
