@@ -10,7 +10,7 @@
     <AssemblyName>Otto.Theme.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-	<LangVersion>9</LangVersion>
+    <LangVersion>9</LangVersion>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -100,6 +100,9 @@
       <Project>{54b04aaf-2fed-478b-8d1d-65873fce46f7}</Project>
       <Name>Otto.Theme</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\demo.MP4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
