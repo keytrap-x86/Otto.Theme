@@ -51,7 +51,7 @@ https://user-images.githubusercontent.com/17864005/116119676-fa674100-a6be-11eb-
     Title="Keytrap's Dark Theme for WPF"
     Width="970"
     Height="562"
-    Style="{StaticResource DarkWindowStyle}"
+    Style="{StaticResource GlowWindow}"
     mc:Ignorable="d" >
     <Grid>
 
