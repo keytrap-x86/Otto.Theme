@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Controls;
 
 namespace Otto.Theme.Controls
 {
@@ -15,8 +16,8 @@ namespace Otto.Theme.Controls
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private string _header;
-        public string Header
+        private object _header;
+        public object Header
         {
             get => _header;
             set

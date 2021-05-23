@@ -23,14 +23,14 @@
                 Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Canvas}, Path=Width}"
                 Fill="{DynamicResource PrimaryBrush}" />
         </Canvas>
-        <TextBlock
+        <Label
             Grid.Column="1"
             Margin="0,0,10,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
+            Content="{Binding Header}"
             FontSize="18"
-            Foreground="{StaticResource PrimaryBrush}"
-            Text="{Binding Header}" />
+            Foreground="{StaticResource PrimaryBrush}" />
         <Rectangle
             Grid.Column="2"
             Height="1"
