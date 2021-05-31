@@ -12,6 +12,7 @@
     <converter:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter" />
     <converter:Color2HexStringConverter x:Key="Color2HexStringConverter" />
     <converter:Object2BooleanConverter x:Key="Object2BooleanConverter" />
+    <converter:Object2BooleanReConverter x:Key="Object2BooleanReConverter" />
     <converter:Boolean2StringConverter x:Key="Boolean2StringConverter" />
     <converter:Int2StringConverter x:Key="Int2StringConverter" />
     <converter:BorderClipConverter x:Key="BorderClipConverter" />
@@ -25,4 +26,8 @@
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter" />
     <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter" />
     <converter:Object2StringConverter x:Key="Object2StringConverter" />
+    <converter:Int2VisibilityConverter x:Key="Int2VisibilityConverter" />
+    <converter:Int2VisibilityReConverter x:Key="Int2VisibilityReConverter" />
+    <converter:Int2BoolConverter x:Key="Int2BoolConverter" />
+    <converter:Int2BoolReConverter x:Key="Int2BoolReConverter" />
 </ResourceDictionary>

@@ -29,7 +29,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="GridRoot" Cursor="Hand">
+                    <Grid x:Name="GridRoot" Cursor="{TemplateBinding Cursor}">
                         <kt:NoGapBorder
                             x:Name="Border"
                             BorderThickness="1"

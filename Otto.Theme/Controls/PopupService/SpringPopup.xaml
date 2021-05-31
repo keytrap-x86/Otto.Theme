@@ -68,7 +68,6 @@
                 <Setter Property="MaxWidth" Value="300" />
                 <Setter Property="MinHeight" Value="34" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="FontFamily" Value="{StaticResource Whitney}" />
                 <Setter Property="HorizontalContentAlignment" Value="Left" />
                 <Setter Property="Template">
                     <Setter.Value>

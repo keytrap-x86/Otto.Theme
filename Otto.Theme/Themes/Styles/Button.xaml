@@ -10,6 +10,31 @@
 
     <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}" />
 
+    <Style x:Key="Basic" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Height" Value="36" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock
+                        x:Name="Txt"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{TemplateBinding Content}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Txt" Property="TextBlock.TextDecorations" Value="Underline" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+
+        </Setter>
+    </Style>
+
     <Style
         x:Key="Info"
         BasedOn="{StaticResource ButtonBaseStyle}"

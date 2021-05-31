@@ -9,7 +9,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollBar}">
-                    <!-- For thumb width change the GridRoot's width -->
+                    <!--  To adjust the thumb's width, change the GridRoot's width  -->
                     <Grid
                         x:Name="GridRoot"
                         Width="12"
@@ -23,9 +23,7 @@
                             Focusable="false"
                             IsDirectionReversed="true">
                             <Track.Thumb>
-                                <Thumb
-                                    x:Name="Thumb"
-                                    Style="{DynamicResource ScrollBarTrackThumb}" />
+                                <Thumb x:Name="Thumb" Style="{DynamicResource ScrollBarTrackThumb}" />
                             </Track.Thumb>
                             <Track.IncreaseRepeatButton>
                                 <RepeatButton
@@ -44,7 +42,7 @@
                         </Track>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        
+
 
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />

@@ -1,10 +1,12 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:themes="clr-namespace:Otto.Theme.Themes">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:themes="clr-namespace:Otto.Theme.Themes">
 
     <ResourceDictionary.MergedDictionaries>
         <themes:SharedResourceDictionary Source="pack://application:,,,/Otto.Theme;component/Themes/Styles/Base/ScrollbarBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ScrollbarBaseStyle}"/>
+    <Style BasedOn="{StaticResource ScrollbarBaseStyle}" TargetType="{x:Type ScrollBar}" />
 </ResourceDictionary>

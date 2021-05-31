@@ -106,7 +106,12 @@
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="Tools\Converter\DivideByTwoConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
+    <Compile Include="Tools\Converter\Int2BoolReConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
+    <Compile Include="Tools\Converter\Int2BoolConverter.cs" />
+    <Compile Include="Tools\Converter\Int2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\Int2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\Object2BooleanReConverter.cs" />
     <Compile Include="Tools\Converter\Object2BooleanConverter.cs" />
     <Compile Include="Tools\Converter\Object2StringConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
@@ -334,9 +339,7 @@
     <Content Include="Themes\XamlCombine.exe" />
     <Resource Include="Themes\XamlCombine.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\Scroll\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>$(ProjectDir)Themes\XamlCombine.exe $(ProjectDir)Themes\XamlCombine.txt $(ProjectDir)Themes\Theme.xaml</PreBuildEvent>
