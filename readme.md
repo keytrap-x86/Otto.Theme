@@ -30,8 +30,8 @@ https://user-images.githubusercontent.com/17864005/116119676-fa674100-a6be-11eb-
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Otto.Theme.Dark;component/Themes/SkinDefault.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Otto.Theme.Dark;component/Themes/Theme.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Otto.Theme;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Otto.Theme;component/Themes/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
@@ -41,7 +41,7 @@ https://user-images.githubusercontent.com/17864005/116119676-fa674100-a6be-11eb-
 - *MainWindow.xaml* :
 
 ```xaml
-<kt:DarkWindow
+<kt:GlowWindow
     x:Class="Otto.Theme.Demo.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -56,5 +56,5 @@ https://user-images.githubusercontent.com/17864005/116119676-fa674100-a6be-11eb-
     <Grid>
 
     </Grid>
-</kt:DarkWindow>
+</kt:GlowWindow>
 ```
