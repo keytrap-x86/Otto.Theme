@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
@@ -11,21 +11,15 @@ namespace Otto.Theme.Controls
     /// </summary>
     public partial class WindowControlButton : INotifyPropertyChanged
     {
-        private Brush _focusBrush;
+        public static readonly DependencyProperty FocusBrushProperty = DependencyProperty.Register(
+            nameof(FocusBrush), typeof(Brush), typeof(WindowControlButton),
+            new PropertyMetadata(null, (owner, _) => ((WindowControlButton)owner).OnPropertyChanged(nameof(FocusBrush))));
+
         public Brush FocusBrush
         {
-            get => _focusBrush;
-            set
-            {
-                if (Equals(value, _focusBrush))
-                    return;
-                _focusBrush = value;
-                OnPropertyChanged();
-            }
+            get => (Brush)GetValue(FocusBrushProperty);
+            set => SetValue(FocusBrushProperty, value);
         }
-
-        
-        
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             "Text", typeof(string), typeof(WindowControlButton), new PropertyMetadata(default(string)));

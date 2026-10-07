@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -278,6 +278,8 @@ namespace Otto.Theme.Tools.Interop
             ID = -12
         }
 
+        // Fields are populated by Win32 marshalling.
+#pragma warning disable CS0649
         internal struct BITMAPINFOHEADER
         {
             internal uint biSize;
@@ -294,6 +296,7 @@ namespace Otto.Theme.Tools.Interop
         }
 
         [Flags]
+#pragma warning restore CS0649
         internal enum RedrawWindowFlags : uint
         {
             Invalidate = 1u,

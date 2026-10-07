@@ -1,9 +1,10 @@
-﻿namespace Otto.Theme.Data.Enum
+namespace Otto.Theme.Data.Enum
 {
     public enum SkinType
     {
         Default,
         Dark,
-        Violet
+        Violet,
+        Light
     }
 }

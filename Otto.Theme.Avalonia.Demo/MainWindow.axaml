@@ -1,0 +1,284 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:Otto.Theme.Avalonia.Demo"
+        x:Class="Otto.Theme.Avalonia.Demo.MainWindow"
+        x:DataType="local:GalleryViewModel" x:CompileBindings="True"
+        Title="Otto — galerie Avalonia" Width="1160" Height="880" MinWidth="960" MinHeight="700"
+        WindowStartupLocation="CenterScreen" FontSize="14"
+        Background="{DynamicResource OttoBackgroundBrush}" Foreground="{DynamicResource OttoForegroundBrush}">
+    <Window.Styles>
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="{DynamicResource OttoSurfaceBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource OttoBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="18" />
+        </Style>
+        <Style Selector="TextBlock.section">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,0,0,14" />
+        </Style>
+        <Style Selector="TextBlock.muted">
+            <Setter Property="Foreground" Value="{DynamicResource OttoMutedForegroundBrush}" />
+        </Style>
+        <Style Selector="Button.sample">
+            <Setter Property="Margin" Value="0,0,8,8" />
+        </Style>
+        <Style Selector="TabItem">
+            <Setter Property="Padding" Value="18,12" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style Selector="ListBox.compact ListBoxItem">
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="Padding" Value="8,4" />
+        </Style>
+        <Style Selector="TableView TableViewRow">
+            <Setter Property="Padding" Value="6,4" />
+        </Style>
+        <Style Selector="TreeViewItem">
+            <Setter Property="IsExpanded" Value="True" />
+        </Style>
+    </Window.Styles>
+    <Grid RowDefinitions="Auto,*,Auto" Margin="24">
+        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,20">
+            <StackPanel Spacing="5">
+                <TextBlock Text="Otto.Theme" FontSize="32" FontWeight="SemiBold" />
+                <TextBlock Classes="muted" Text="La même identité, en clair comme en sombre · Avalonia · .NET 10" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Spacing="5" VerticalAlignment="Center">
+                <TextBlock Text="Apparence" Classes="muted" />
+                <ToggleSwitch x:Name="ThemeToggle" IsChecked="{Binding IsDarkTheme, Mode=TwoWay}"
+                              OnContent="Sombre" OffContent="Clair" />
+            </StackPanel>
+        </Grid>
+        <TabControl x:Name="GalleryTabs" Grid.Row="1">
+            <TabItem Header="Saisie et actions">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Spacing="16" Margin="0,16,0,0">
+                        <Border Classes="card">
+                            <StackPanel>
+                                <TextBlock Classes="section" Text="Boutons et actions" />
+                                <WrapPanel>
+                                    <Button x:Name="ActionButton" Classes="sample accent" Content="Exécuter l’action" Click="OnActionClick" />
+                                    <Button Classes="sample" Content="Secondaire" ToolTip.Tip="Une action secondaire et son infobulle." />
+                                    <Button Classes="sample" Content="Réinitialiser" Click="OnResetClick" />
+                                    <Button Classes="sample" Content="Indisponible" IsEnabled="False" />
+                                    <Button Classes="sample success" Content="Succès" />
+                                    <Button Classes="sample info" Content="Information" />
+                                    <Button Classes="sample warning" Content="Attention" />
+                                    <Button Classes="sample danger" Content="Erreur" />
+                                    <ToggleButton Content="Option active" IsChecked="True" Margin="0,0,8,8" />
+                                    <RepeatButton Content="Maintenir +" Click="OnIncrementClick" Margin="0,0,0,8" />
+                                </WrapPanel>
+                                <TextBlock x:Name="ActionFeedback" Text="{Binding Feedback}" Classes="muted" TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Border>
+                        <Grid ColumnDefinitions="*,16,*">
+                            <Border Classes="card">
+                                <StackPanel Spacing="10">
+                                    <TextBlock Classes="section" Text="Champs de saisie" Margin="0,0,0,2" />
+                                    <TextBox x:Name="NameInput" Text="{Binding UserName, Mode=TwoWay}" PlaceholderText="Votre nom"
+                                             AutomationProperties.Name="Nom" />
+                                    <TextBox Text="OttoTheme" PasswordChar="&#x25CF;" AutomationProperties.Name="Mot de passe" />
+                                    <Grid ColumnDefinitions="*,12,*">
+                                        <TextBox Text="Lecture seule" IsReadOnly="True" />
+                                        <TextBox Grid.Column="2" Text="Désactivé" IsEnabled="False" />
+                                    </Grid>
+                                    <Grid ColumnDefinitions="*,12,*">
+                                        <TextBlock Text="Quantité" VerticalAlignment="Center" />
+                                        <NumericUpDown x:Name="QuantityInput" Grid.Column="2" Value="{Binding Quantity, Mode=TwoWay}"
+                                                       Minimum="0" Maximum="100" Increment="1" FormatString="0" />
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                            <Border Grid.Column="2" Classes="card">
+                                <StackPanel Spacing="10">
+                                    <TextBlock Classes="section" Text="Choix et options" Margin="0,0,0,2" />
+                                    <ComboBox x:Name="AccentChoice" SelectedIndex="0" HorizontalAlignment="Stretch">
+                                        <ComboBoxItem Content="Une palette cohérente" /><ComboBoxItem Content="Des états lisibles" />
+                                        <ComboBoxItem Content="Le clavier reste accessible" />
+                                    </ComboBox>
+                                    <WrapPanel>
+                                        <CheckBox x:Name="AccentCheckBox" Content="Option sélectionnée" IsChecked="True" Margin="0,0,18,0" />
+                                        <CheckBox Content="Indéterminé" IsThreeState="True" IsChecked="{x:Null}" />
+                                    </WrapPanel>
+                                    <StackPanel Orientation="Horizontal" Spacing="20">
+                                        <RadioButton Content="Personnel" GroupName="Account" IsChecked="True" />
+                                        <RadioButton Content="Équipe" GroupName="Account" />
+                                    </StackPanel>
+                                    <ToggleSwitch x:Name="NotificationsToggle" Content="Notifications" IsChecked="{Binding NotificationsEnabled, Mode=TwoWay}"
+                                                  OnContent="Activées" OffContent="Désactivées" />
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Border Classes="card">
+                            <Grid ColumnDefinitions="*,24,Auto">
+                                <StackPanel Spacing="8">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <TextBlock Classes="section" Text="Valeurs et progression" Margin="0" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Intensity, StringFormat='{}{0:0} %'}" Classes="muted" />
+                                    </Grid>
+                                    <Slider x:Name="IntensitySlider" Minimum="0" Maximum="100" Value="{Binding Intensity, Mode=TwoWay}"
+                                            TickFrequency="10" IsSnapToTickEnabled="True" TickPlacement="BottomRight" />
+                                    <ProgressBar x:Name="IntensityProgress" Minimum="0" Maximum="100" Value="{Binding Intensity}" Height="12" />
+                                    <ProgressBar IsIndeterminate="True" Height="5" />
+                                </StackPanel>
+                                <Slider Grid.Column="2" Orientation="Vertical" Minimum="0" Maximum="100" Value="40"
+                                        Height="105" TickFrequency="20" TickPlacement="BottomRight" />
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Listes et données">
+                <Grid RowDefinitions="Auto,190,16,*" ColumnDefinitions="250,16,*" Margin="0,16,0,0">
+                    <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" Spacing="10" Margin="0,0,0,12">
+                        <Button x:Name="SortProjectsButton" Content="Trier les projets par nom" Click="OnSortClick" />
+                        <TextBlock Classes="muted" Text="Sélectionnez une ligne pour modifier le projet." VerticalAlignment="Center" />
+                    </StackPanel>
+                    <Border Grid.Row="1" Classes="card">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top" Classes="section" Text="Liste" />
+                            <ListBox x:Name="NavigationList" Classes="compact" SelectedIndex="1" SelectionMode="Multiple,Toggle">
+                                <ListBoxItem Content="Tableau de bord" /><ListBoxItem Content="Projets" />
+                                <ListBoxItem Content="Messages" /><ListBoxItem Content="Archives" />
+                            </ListBox>
+                        </DockPanel>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="2" Classes="card">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top" Classes="section" Text="Projets" />
+                            <ListBox x:Name="ProjectList" Classes="compact" ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject, Mode=TwoWay}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="local:ProjectRow">
+                                        <Grid ColumnDefinitions="*,130,60">
+                                            <TextBlock Text="{Binding Name}" />
+                                            <TextBlock Grid.Column="1" Text="{Binding Status}" Classes="muted" />
+                                            <TextBlock Grid.Column="2" Text="{Binding Progress, StringFormat='{}{0:0} %'}" HorizontalAlignment="Right" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+                    </Border>
+                    <Border Grid.Row="3" Classes="card">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top" Classes="section" Text="Arborescence" />
+                            <TreeView x:Name="ProjectTree" ItemsSource="{Binding Navigation}">
+                                <TreeView.ItemTemplate>
+                                    <TreeDataTemplate x:DataType="local:NavigationNode" ItemsSource="{Binding Children}">
+                                        <TextBlock Text="{Binding Name}" />
+                                    </TreeDataTemplate>
+                                </TreeView.ItemTemplate>
+                            </TreeView>
+                        </DockPanel>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="2" Classes="card">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Top" Classes="section" Text="Tableau et édition" />
+                            <StackPanel DockPanel.Dock="Bottom" Spacing="8" Margin="0,12,0,0">
+                                <TextBlock Classes="muted" Text="Projet sélectionné" FontSize="12" />
+                                <Grid ColumnDefinitions="2*,8,*,8,150">
+                                    <TextBox x:Name="ProjectNameInput" Text="{Binding SelectedProject.Name, Mode=TwoWay}" AutomationProperties.Name="Nom du projet" />
+                                    <TextBox Grid.Column="2" Text="{Binding SelectedProject.Status, Mode=TwoWay}" AutomationProperties.Name="Statut du projet" />
+                                    <NumericUpDown Grid.Column="4" Value="{Binding SelectedProject.Progress, Mode=TwoWay}" Minimum="0" Maximum="100"
+                                                   FormatString="0" AutomationProperties.Name="Avancement du projet" />
+                                </Grid>
+                            </StackPanel>
+                            <TableView x:Name="ProjectsGrid" ItemsSource="{Binding Projects}" SelectedItem="{Binding SelectedProject, Mode=TwoWay}"
+                                       CanUserResizeColumns="True" BorderThickness="0">
+                                <TableView.Columns>
+                                    <TableViewColumn Header="Projet" Width="2*">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate x:DataType="local:ProjectRow"><TextBlock Text="{Binding Name}" Margin="8,2" VerticalAlignment="Center" /></DataTemplate>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Statut" Width="*">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate x:DataType="local:ProjectRow"><TextBlock Text="{Binding Status}" Margin="8,2" VerticalAlignment="Center" /></DataTemplate>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Avancement" Width="110">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate x:DataType="local:ProjectRow"><TextBlock Text="{Binding Progress, StringFormat='{}{0:0} %'}" Margin="8,2" VerticalAlignment="Center" /></DataTemplate>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Actif" Width="70">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate x:DataType="local:ProjectRow"><CheckBox IsChecked="{Binding Active, Mode=TwoWay}" HorizontalAlignment="Center" /></DataTemplate>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                </TableView.Columns>
+                            </TableView>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dates et présentation">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Spacing="16" Margin="0,16,0,0">
+                        <Grid ColumnDefinitions="330,16,*">
+                            <Border Classes="card">
+                                <StackPanel>
+                                    <TextBlock Classes="section" Text="Calendrier" />
+                                    <Viewbox Height="270" Stretch="Uniform" HorizontalAlignment="Center">
+                                        <Calendar x:Name="SampleCalendar" SelectedDate="{Binding CalendarDate, Mode=TwoWay}" />
+                                    </Viewbox>
+                                </StackPanel>
+                            </Border>
+                            <Border Grid.Column="2" Classes="card">
+                                <StackPanel Spacing="14">
+                                    <TextBlock Classes="section" Text="Dates, heure et menus" Margin="0" />
+                                    <Grid ColumnDefinitions="100,*">
+                                        <TextBlock Text="Date" VerticalAlignment="Center" />
+                                        <DatePicker x:Name="SampleDatePicker" Grid.Column="1" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
+                                    </Grid>
+                                    <Grid ColumnDefinitions="100,*">
+                                        <TextBlock Text="Heure" VerticalAlignment="Center" />
+                                        <TimePicker x:Name="SampleTimePicker" Grid.Column="1" SelectedTime="{Binding SelectedTime, Mode=TwoWay}" ClockIdentifier="24HourClock" />
+                                    </Grid>
+                                    <Separator />
+                                    <Menu>
+                                        <MenuItem Header="_Fichier">
+                                            <MenuItem Header="_Réinitialiser" Click="OnResetClick" />
+                                            <Separator />
+                                            <MenuItem Header="Action désactivée" IsEnabled="False" />
+                                        </MenuItem>
+                                        <MenuItem Header="_Édition">
+                                            <MenuItem Header="Choisir une option"><MenuItem Header="Première option" /><MenuItem Header="Deuxième option" /></MenuItem>
+                                        </MenuItem>
+                                    </Menu>
+                                    <Button Content="Ouvrir le panneau" HorizontalAlignment="Left">
+                                        <Button.Flyout>
+                                            <Flyout><StackPanel Spacing="8"><TextBlock Text="Un panneau contextuel" FontWeight="SemiBold" /><TextBlock Text="Il suit aussi le thème clair ou sombre." /></StackPanel></Flyout>
+                                        </Button.Flyout>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <Border Classes="card">
+                            <StackPanel Spacing="12">
+                                <TextBlock Classes="section" Text="Présentation du contenu" Margin="0" />
+                                <Expander x:Name="DetailsExpander" Header="Détails du projet" IsExpanded="True" HorizontalAlignment="Stretch">
+                                    <TextBox AcceptsReturn="True" TextWrapping="Wrap" MinHeight="80"
+                                             Text="Otto accompagne les applications de bureau avec une palette discrète, un accent bleu et des états de contrôle lisibles.&#x0A;&#x0A;Ce champ peut être modifié. Utilisez Tab et Maj+Tab pour parcourir les contrôles." />
+                                </Expander>
+                                <Border Background="{DynamicResource OttoRaisedBrush}" CornerRadius="4" Padding="12">
+                                    <Border.ContextMenu>
+                                        <ContextMenu><MenuItem Header="Exécuter l’action" Click="OnActionClick" /><MenuItem Header="Réinitialiser" Click="OnResetClick" /></ContextMenu>
+                                    </Border.ContextMenu>
+                                    <TextBlock Text="Clic droit pour ouvrir le menu contextuel." Classes="muted" />
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto" Margin="0,16,0,0">
+            <TextBlock Text="{Binding StatusMessage}" Classes="muted" />
+            <TextBlock Grid.Column="1" Text="Tab · Flèches · Espace" Classes="muted" />
+        </Grid>
+    </Grid>
+</Window>

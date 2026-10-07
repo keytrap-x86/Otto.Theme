@@ -1,4 +1,4 @@
-﻿
+
 using Otto.Theme.Data;
 using Otto.Theme.Tools.Helper;
 using Otto.Theme.Tools.Interop;
@@ -17,6 +17,11 @@ namespace Otto.Theme.Controls
 {
     public class GlowWindow : Window
     {
+        static GlowWindow()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(typeof(GlowWindow)));
+        }
+
         internal int DeferGlowChangesCount;
 
         private readonly GlowEdge[] _glowEdges = new GlowEdge[4];

@@ -1,4 +1,4 @@
-﻿using Otto.Theme.Data.Enum;
+using Otto.Theme.Data.Enum;
 
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace Otto.Theme.Tools.Helper
 
         public static ResourceDictionary GetSkin(SkinType skin) => new()
         {
-            Source = new Uri($"pack://application:,,,/Otto.Theme;component/Themes/Skin{skin}.xaml")
+            Source = new Uri($"pack://application:,,,/Otto.Theme;component/Themes/Skin{(skin == SkinType.Violet ? SkinType.Dark : skin)}.xaml")
         };
 
         public static T GetResource<T>(string key)

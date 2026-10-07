@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.ConstrainedExecution;
+using System;
 using System.Security;
 
 namespace Otto.Theme.Tools.Interop.Handle
@@ -12,7 +11,6 @@ namespace Otto.Theme.Tools.Interop.Handle
         }
 
         [SecurityCritical]
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
         protected override bool ReleaseHandle()
         {
             return InteropMethods.DestroyIcon(handle);

@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Security.Permissions;
 
 using Microsoft.Win32.SafeHandles;
 
@@ -29,15 +28,7 @@ namespace Otto.Theme.Tools.Interop.Handle
         [SecurityCritical, SecuritySafeCritical]
         protected override bool ReleaseHandle()
         {
-            new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Assert();
-            try
-            {
-                return CloseHandleNoThrow(new HandleRef(null, handle));
-            }
-            finally
-            {
-                CodeAccessPermission.RevertAssert();
-            }
+            return CloseHandleNoThrow(new HandleRef(null, handle));
         }
 
         [SecurityCritical]

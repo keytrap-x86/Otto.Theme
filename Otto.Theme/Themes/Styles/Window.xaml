@@ -1,10 +1,14 @@
-﻿<ResourceDictionary
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:kt="clr-namespace:Otto.Theme.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Otto.Theme;component/Themes/Basic/Resources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style TargetType="Window">
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="UseLayoutRounding" Value="True" />
     </Style>
@@ -15,12 +19,12 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="NonClientAreaBackground" Value="{DynamicResource DarkBackgroundBrush}" />
         <Setter Property="NonClientAreaForeground" Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="CloseButtonBackground" Value="Transparent" />
         <Setter Property="CloseButtonForeground" Value="{DynamicResource PrimaryTextBrush}" />
-        <Setter Property="CloseButtonHoverBackground" Value="#e81123" />
-        <Setter Property="CloseButtonHoverForeground" Value="White" />
+        <Setter Property="CloseButtonHoverBackground" Value="{DynamicResource WindowCloseHoverBrush}" />
+        <Setter Property="CloseButtonHoverForeground" Value="{DynamicResource OnAccentBrush}" />
         <Setter Property="OtherButtonBackground" Value="Transparent" />
         <Setter Property="OtherButtonForeground" Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="OtherButtonHoverBackground" Value="{DynamicResource LightBackgroundBrush}" />
@@ -60,30 +64,30 @@
                                         HorizontalAlignment="Right"
                                         Command="SystemCommands.MinimizeWindowCommand"
                                         Cursor="Arrow"
-                                        FocusBrush="{StaticResource LightBackgroundBrush}"
+                                        FocusBrush="{DynamicResource LightBackgroundBrush}"
                                         FontFamily="Segoe MDL2 Assets"
                                         FontSize="10"
-                                        Foreground="{StaticResource ControlForegroundBrush}"
+                                        Foreground="{DynamicResource ControlForegroundBrush}"
                                         Text="&#xE949;" />
                                     <kt:WindowControlButton
                                         x:Name="ButtonMax"
                                         HorizontalAlignment="Right"
                                         Command="SystemCommands.MaximizeWindowCommand"
                                         Cursor="Arrow"
-                                        FocusBrush="{StaticResource LightBackgroundBrush}"
+                                        FocusBrush="{DynamicResource LightBackgroundBrush}"
                                         FontFamily="Segoe MDL2 Assets"
                                         FontSize="10"
-                                        Foreground="{StaticResource ControlForegroundBrush}"
+                                        Foreground="{DynamicResource ControlForegroundBrush}"
                                         Text="&#xE923;" />
                                     <kt:WindowControlButton
                                         x:Name="ButtonRestore"
                                         HorizontalAlignment="Right"
                                         Command="SystemCommands.RestoreWindowCommand"
                                         Cursor="Arrow"
-                                        FocusBrush="{StaticResource LightBackgroundBrush}"
+                                        FocusBrush="{DynamicResource LightBackgroundBrush}"
                                         FontFamily="Segoe MDL2 Assets"
                                         FontSize="10"
-                                        Foreground="{StaticResource ControlForegroundBrush}"
+                                        Foreground="{DynamicResource ControlForegroundBrush}"
                                         Text="&#xE739;" />
                                     <kt:WindowControlButton
                                         x:Name="ButtonClose"
@@ -93,7 +97,7 @@
                                         FocusBrush="Red"
                                         FontFamily="Segoe MDL2 Assets"
                                         FontSize="10"
-                                        Foreground="{StaticResource ControlForegroundBrush}"
+                                        Foreground="{DynamicResource ControlForegroundBrush}"
                                         Text="&#xE106;" />
                                 </StackPanel>
                                 <Grid Grid.Column="0">
@@ -221,4 +225,6 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
     </Style>
+    <Style TargetType="{x:Type kt:Window}" BasedOn="{StaticResource WindowWin10}" />
+    <Style TargetType="{x:Type kt:GlowWindow}" BasedOn="{StaticResource GlowWindow}" />
 </ResourceDictionary>

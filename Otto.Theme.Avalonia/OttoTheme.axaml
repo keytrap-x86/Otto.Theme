@@ -1,0 +1,366 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Otto.Theme.Avalonia.OttoTheme"
+        x:CompileBindings="True">
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <Color x:Key="OttoAppBackgroundColor">#F3F4F6</Color>
+                    <Color x:Key="OttoRecessedColor">#E7E9ED</Color>
+                    <Color x:Key="OttoSurfaceColor">#FFFFFF</Color>
+                    <Color x:Key="OttoRaisedColor">#E6EAF0</Color>
+                    <Color x:Key="OttoControlBackgroundColor">#FFFFFF</Color>
+                    <Color x:Key="OttoTextColor">#20242A</Color>
+                    <Color x:Key="OttoMutedTextColor">#5F6875</Color>
+                    <Color x:Key="OttoFocusColor">#2C5FF7</Color>
+                    <Color x:Key="OttoInactiveSelectionColor">#E4E7EC</Color>
+                    <Color x:Key="OttoOnStatusColor">#FFFFFF</Color>
+                    <Color x:Key="OttoBorderColor">#B8C1CE</Color>
+                    <Color x:Key="OttoHoverColor">#E8EDF5</Color>
+                    <Color x:Key="OttoSelectedColor">#DCE5FF</Color>
+                    <Color x:Key="OttoDisabledBackgroundColor">#EBEDF1</Color>
+                    <Color x:Key="OttoDisabledForegroundColor">#788390</Color>
+                    <Color x:Key="OttoAccentColor">#2C5FF7</Color>
+                    <Color x:Key="OttoAccentHoverColor">#2048D4</Color>
+                    <Color x:Key="OttoAccentPressedColor">#193BAF</Color>
+                    <Color x:Key="OttoSuccessColor">#137647</Color>
+                    <Color x:Key="OttoWarningColor">#936200</Color>
+                    <Color x:Key="OttoErrorColor">#B92D38</Color>
+                    <Color x:Key="OttoInfoColor">#335D9E</Color>
+                    <StaticResource x:Key="BackgroundLightColor" ResourceKey="OttoSurfaceColor" />
+                    <Color x:Key="OnAccentColor">#FFFFFF</Color>
+                    <StaticResource x:Key="BackgroundColor" ResourceKey="OttoAppBackgroundColor" />
+                    <StaticResource x:Key="BackgroundDarkColor" ResourceKey="OttoRecessedColor" />
+                    <StaticResource x:Key="DarkestColor" ResourceKey="OttoSurfaceColor" />
+                    <StaticResource x:Key="PrimaryTextColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="SecondaryTextColor" ResourceKey="OttoMutedTextColor" />
+                    <StaticResource x:Key="ThirdlyTextColor" ResourceKey="OttoMutedTextColor" />
+                    <StaticResource x:Key="ControlBackgroundColor" ResourceKey="OttoControlBackgroundColor" />
+                    <StaticResource x:Key="ControlForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlBorderColor" ResourceKey="OttoBorderColor" />
+                    <StaticResource x:Key="ControlHoveredBackgroundColor" ResourceKey="OttoHoverColor" />
+                    <StaticResource x:Key="ControlHoveredForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlHoveredBorderColor" ResourceKey="OttoFocusColor" />
+                    <StaticResource x:Key="ControlFocusedBackgroundColor" ResourceKey="OttoControlBackgroundColor" />
+                    <StaticResource x:Key="ControlFocusedForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlFocusedBorderColor" ResourceKey="OttoFocusColor" />
+                    <StaticResource x:Key="ControlReadOnlyBackgroundColor" ResourceKey="OttoRecessedColor" />
+                    <StaticResource x:Key="ControlReadOnlyForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlReadOnlyBorderColor" ResourceKey="OttoBorderColor" />
+                    <StaticResource x:Key="ControlDisabledBackgroundColor" ResourceKey="OttoDisabledBackgroundColor" />
+                    <StaticResource x:Key="ControlDisabledForegroundColor" ResourceKey="OttoDisabledForegroundColor" />
+                    <StaticResource x:Key="ControlDisabledBorderColor" ResourceKey="OttoBorderColor" />
+                    <StaticResource x:Key="PrimaryColor" ResourceKey="OttoAccentColor" />
+                    <StaticResource x:Key="PrimaryLightColor" ResourceKey="OttoAccentHoverColor" />
+                    <StaticResource x:Key="PrimaryDarkColor" ResourceKey="OttoAccentPressedColor" />
+                    <StaticResource x:Key="SuccessColor" ResourceKey="OttoSuccessColor" />
+                    <StaticResource x:Key="WarningColor" ResourceKey="OttoWarningColor" />
+                    <StaticResource x:Key="ErrorColor" ResourceKey="OttoErrorColor" />
+                    <StaticResource x:Key="InfoColor" ResourceKey="OttoInfoColor" />
+                    <StaticResource x:Key="SelectionInactiveColor" ResourceKey="OttoInactiveSelectionColor" />
+                    <StaticResource x:Key="FocusRingColor" ResourceKey="OttoFocusColor" />
+                    <StaticResource x:Key="OnSuccessColor" ResourceKey="OttoOnStatusColor" />
+                    <StaticResource x:Key="OnWarningColor" ResourceKey="OttoOnStatusColor" />
+                    <StaticResource x:Key="OnErrorColor" ResourceKey="OttoOnStatusColor" />
+                    <StaticResource x:Key="OnInfoColor" ResourceKey="OttoOnStatusColor" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <Color x:Key="OttoAppBackgroundColor">#23272A</Color>
+                    <Color x:Key="OttoRecessedColor">#141617</Color>
+                    <Color x:Key="OttoSurfaceColor">#18191C</Color>
+                    <Color x:Key="OttoRaisedColor">#32383D</Color>
+                    <Color x:Key="OttoControlBackgroundColor">#303339</Color>
+                    <Color x:Key="OttoTextColor">#E4E6EB</Color>
+                    <Color x:Key="OttoMutedTextColor">#A7AFBB</Color>
+                    <Color x:Key="OttoFocusColor">#5F8AFA</Color>
+                    <Color x:Key="OttoInactiveSelectionColor">#3C4148</Color>
+                    <Color x:Key="OttoOnStatusColor">#141617</Color>
+                    <Color x:Key="OttoBorderColor">#4F5864</Color>
+                    <Color x:Key="OttoHoverColor">#383B42</Color>
+                    <Color x:Key="OttoSelectedColor">#263E77</Color>
+                    <Color x:Key="OttoDisabledBackgroundColor">#202327</Color>
+                    <Color x:Key="OttoDisabledForegroundColor">#757575</Color>
+                    <Color x:Key="OttoAccentColor">#2C5FF7</Color>
+                    <Color x:Key="OttoAccentHoverColor">#5F8AFA</Color>
+                    <Color x:Key="OttoAccentPressedColor">#2048D4</Color>
+                    <Color x:Key="OttoSuccessColor">#43B581</Color>
+                    <Color x:Key="OttoWarningColor">#FBB848</Color>
+                    <Color x:Key="OttoErrorColor">#F15757</Color>
+                    <Color x:Key="OttoInfoColor">#809AD0</Color>
+                    <StaticResource x:Key="BackgroundLightColor" ResourceKey="OttoRaisedColor" />
+                    <Color x:Key="OnAccentColor">#FFFFFF</Color>
+                    <StaticResource x:Key="BackgroundColor" ResourceKey="OttoAppBackgroundColor" />
+                    <StaticResource x:Key="BackgroundDarkColor" ResourceKey="OttoRecessedColor" />
+                    <StaticResource x:Key="DarkestColor" ResourceKey="OttoSurfaceColor" />
+                    <StaticResource x:Key="PrimaryTextColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="SecondaryTextColor" ResourceKey="OttoMutedTextColor" />
+                    <StaticResource x:Key="ThirdlyTextColor" ResourceKey="OttoMutedTextColor" />
+                    <StaticResource x:Key="ControlBackgroundColor" ResourceKey="OttoControlBackgroundColor" />
+                    <StaticResource x:Key="ControlForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlBorderColor" ResourceKey="OttoBorderColor" />
+                    <StaticResource x:Key="ControlHoveredBackgroundColor" ResourceKey="OttoHoverColor" />
+                    <StaticResource x:Key="ControlHoveredForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlHoveredBorderColor" ResourceKey="OttoFocusColor" />
+                    <StaticResource x:Key="ControlFocusedBackgroundColor" ResourceKey="OttoControlBackgroundColor" />
+                    <StaticResource x:Key="ControlFocusedForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlFocusedBorderColor" ResourceKey="OttoFocusColor" />
+                    <StaticResource x:Key="ControlReadOnlyBackgroundColor" ResourceKey="OttoRecessedColor" />
+                    <StaticResource x:Key="ControlReadOnlyForegroundColor" ResourceKey="OttoTextColor" />
+                    <StaticResource x:Key="ControlReadOnlyBorderColor" ResourceKey="OttoBorderColor" />
+                    <StaticResource x:Key="ControlDisabledBackgroundColor" ResourceKey="OttoDisabledBackgroundColor" />
+                    <StaticResource x:Key="ControlDisabledForegroundColor" ResourceKey="OttoDisabledForegroundColor" />
+                    <StaticResource x:Key="ControlDisabledBorderColor" ResourceKey="OttoBorderColor" />
+                    <StaticResource x:Key="PrimaryColor" ResourceKey="OttoAccentColor" />
+                    <StaticResource x:Key="PrimaryLightColor" ResourceKey="OttoAccentHoverColor" />
+                    <StaticResource x:Key="PrimaryDarkColor" ResourceKey="OttoAccentPressedColor" />
+                    <StaticResource x:Key="SuccessColor" ResourceKey="OttoSuccessColor" />
+                    <StaticResource x:Key="WarningColor" ResourceKey="OttoWarningColor" />
+                    <StaticResource x:Key="ErrorColor" ResourceKey="OttoErrorColor" />
+                    <StaticResource x:Key="InfoColor" ResourceKey="OttoInfoColor" />
+                    <StaticResource x:Key="SelectionInactiveColor" ResourceKey="OttoInactiveSelectionColor" />
+                    <StaticResource x:Key="FocusRingColor" ResourceKey="OttoFocusColor" />
+                    <StaticResource x:Key="OnSuccessColor" ResourceKey="OttoOnStatusColor" />
+                    <StaticResource x:Key="OnWarningColor" ResourceKey="OttoOnStatusColor" />
+                    <StaticResource x:Key="OnErrorColor" ResourceKey="OttoOnStatusColor" />
+                    <StaticResource x:Key="OnInfoColor" ResourceKey="OttoOnStatusColor" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <!-- Semantic resources stay live when RequestedThemeVariant changes. -->
+            <SolidColorBrush x:Key="OttoBackgroundBrush" Color="{DynamicResource OttoAppBackgroundColor}" />
+            <SolidColorBrush x:Key="OttoAppBackgroundBrush" Color="{DynamicResource OttoAppBackgroundColor}" />
+            <SolidColorBrush x:Key="OttoSurfaceBrush" Color="{DynamicResource OttoSurfaceColor}" />
+            <SolidColorBrush x:Key="OttoRaisedBrush" Color="{DynamicResource OttoRaisedColor}" />
+            <SolidColorBrush x:Key="OttoControlBackgroundBrush" Color="{DynamicResource OttoControlBackgroundColor}" />
+            <SolidColorBrush x:Key="OttoForegroundBrush" Color="{DynamicResource OttoTextColor}" />
+            <SolidColorBrush x:Key="OttoTextBrush" Color="{DynamicResource OttoTextColor}" />
+            <SolidColorBrush x:Key="OttoControlForegroundBrush" Color="{DynamicResource OttoTextColor}" />
+            <SolidColorBrush x:Key="OttoMutedForegroundBrush" Color="{DynamicResource OttoMutedTextColor}" />
+            <SolidColorBrush x:Key="OttoBorderBrush" Color="{DynamicResource OttoBorderColor}" />
+            <SolidColorBrush x:Key="OttoFocusBorderBrush" Color="{DynamicResource OttoFocusColor}" />
+            <SolidColorBrush x:Key="OttoHoverBrush" Color="{DynamicResource OttoHoverColor}" />
+            <SolidColorBrush x:Key="OttoSelectedBrush" Color="{DynamicResource OttoSelectedColor}" />
+            <SolidColorBrush x:Key="OttoDisabledBackgroundBrush" Color="{DynamicResource OttoDisabledBackgroundColor}" />
+            <SolidColorBrush x:Key="OttoDisabledForegroundBrush" Color="{DynamicResource OttoDisabledForegroundColor}" />
+            <SolidColorBrush x:Key="OttoAccentBrush" Color="{DynamicResource OttoAccentColor}" />
+            <SolidColorBrush x:Key="OttoAccentHoverBrush" Color="{DynamicResource OttoAccentHoverColor}" />
+            <SolidColorBrush x:Key="OttoAccentPressedBrush" Color="{DynamicResource OttoAccentPressedColor}" />
+            <SolidColorBrush x:Key="OttoAccentForegroundBrush" Color="White" />
+            <SolidColorBrush x:Key="OttoSuccessBrush" Color="{DynamicResource OttoSuccessColor}" />
+            <SolidColorBrush x:Key="OttoWarningBrush" Color="{DynamicResource OttoWarningColor}" />
+            <SolidColorBrush x:Key="OttoErrorBrush" Color="{DynamicResource OttoErrorColor}" />
+            <SolidColorBrush x:Key="OttoInfoBrush" Color="{DynamicResource OttoInfoColor}" />
+            <SolidColorBrush x:Key="OttoOnStatusBrush" Color="{DynamicResource OttoOnStatusColor}" />
+            <CornerRadius x:Key="OttoControlCornerRadius">4</CornerRadius>
+            <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}" />
+            <SolidColorBrush x:Key="LightBackgroundBrush" Color="{DynamicResource BackgroundLightColor}" />
+            <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{DynamicResource BackgroundDarkColor}" />
+            <SolidColorBrush x:Key="DarkestBrush" Color="{DynamicResource DarkestColor}" />
+            <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource PrimaryColor}" />
+            <SolidColorBrush x:Key="LightPrimaryBrush" Color="{DynamicResource PrimaryLightColor}" />
+            <SolidColorBrush x:Key="DarkPrimaryBrush" Color="{DynamicResource PrimaryDarkColor}" />
+            <SolidColorBrush x:Key="PrimaryTextBrush" Color="{DynamicResource PrimaryTextColor}" />
+            <SolidColorBrush x:Key="SecondaryTextBrush" Color="{DynamicResource SecondaryTextColor}" />
+            <SolidColorBrush x:Key="ThirdlyTextBrush" Color="{DynamicResource ThirdlyTextColor}" />
+            <SolidColorBrush x:Key="SuccessBrush" Color="{DynamicResource SuccessColor}" />
+            <SolidColorBrush x:Key="WarningBrush" Color="{DynamicResource WarningColor}" />
+            <SolidColorBrush x:Key="ErrorBrush" Color="{DynamicResource ErrorColor}" />
+            <SolidColorBrush x:Key="InfoBrush" Color="{DynamicResource InfoColor}" />
+            <SolidColorBrush x:Key="OnAccentBrush" Color="{DynamicResource OnAccentColor}" />
+            <SolidColorBrush x:Key="SelectionInactiveBrush" Color="{DynamicResource SelectionInactiveColor}" />
+            <SolidColorBrush x:Key="FocusRingBrush" Color="{DynamicResource FocusRingColor}" />
+            <SolidColorBrush x:Key="OnSuccessBrush" Color="{DynamicResource OnSuccessColor}" />
+            <SolidColorBrush x:Key="OnWarningBrush" Color="{DynamicResource OnWarningColor}" />
+            <SolidColorBrush x:Key="OnErrorBrush" Color="{DynamicResource OnErrorColor}" />
+            <SolidColorBrush x:Key="OnInfoBrush" Color="{DynamicResource OnInfoColor}" />
+            <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource ControlBackgroundColor}" />
+            <SolidColorBrush x:Key="ControlForegroundBrush" Color="{DynamicResource ControlForegroundColor}" />
+            <SolidColorBrush x:Key="ControlBorderBrush" Color="{DynamicResource ControlBorderColor}" />
+            <SolidColorBrush x:Key="ControlHoveredBackgroundBrush" Color="{DynamicResource ControlHoveredBackgroundColor}" />
+            <SolidColorBrush x:Key="ControlHoveredForegroundBrush" Color="{DynamicResource ControlHoveredForegroundColor}" />
+            <SolidColorBrush x:Key="ControlHoveredBorderBrush" Color="{DynamicResource ControlHoveredBorderColor}" />
+            <SolidColorBrush x:Key="ControlFocusedBackgroundBrush" Color="{DynamicResource ControlFocusedBackgroundColor}" />
+            <SolidColorBrush x:Key="ControlFocusedForegroundBrush" Color="{DynamicResource ControlFocusedForegroundColor}" />
+            <SolidColorBrush x:Key="ControlFocusedBorderBrush" Color="{DynamicResource ControlFocusedBorderColor}" />
+            <SolidColorBrush x:Key="ControlReadOnlyBackgroundBrush" Color="{DynamicResource ControlReadOnlyBackgroundColor}" />
+            <SolidColorBrush x:Key="ControlReadOnlyForegroundBrush" Color="{DynamicResource ControlReadOnlyForegroundColor}" />
+            <SolidColorBrush x:Key="ControlReadOnlyBorderBrush" Color="{DynamicResource ControlReadOnlyBorderColor}" />
+            <SolidColorBrush x:Key="ControlDisabledBackgroundBrush" Color="{DynamicResource ControlDisabledBackgroundColor}" />
+            <SolidColorBrush x:Key="ControlDisabledForegroundBrush" Color="{DynamicResource ControlDisabledForegroundColor}" />
+            <SolidColorBrush x:Key="ControlDisabledBorderBrush" Color="{DynamicResource ControlDisabledBorderColor}" />
+            <CornerRadius x:Key="OttoCardCornerRadius">8</CornerRadius>
+        </ResourceDictionary>
+    </Styles.Resources>
+
+    <!-- Native Fluent templates retain keyboard, automation, popup and validation behavior. -->
+    <FluentTheme>
+        <FluentTheme.Palettes>
+            <ColorPaletteResources x:Key="Light"
+                Accent="{DynamicResource OttoAccentColor}" RegionColor="#F3F4F6" ErrorText="#B92D38"
+                BaseHigh="#20242A" BaseMediumHigh="#3D4652" BaseMedium="#5F6875"
+                BaseMediumLow="#788390" BaseLow="#E6EAF0" AltHigh="#FFFFFF"
+                ChromeLow="#F3F5F8" ChromeMedium="#E6EAF0" ChromeMediumLow="#EBEDF1"
+                ChromeHigh="#B8C1CE" ChromeDisabledHigh="#EBEDF1" ChromeDisabledLow="#788390" />
+            <ColorPaletteResources x:Key="Dark"
+                Accent="{DynamicResource OttoAccentColor}" RegionColor="#23272A" ErrorText="#F15757"
+                BaseHigh="#E4E6EB" BaseMediumHigh="#B4B8BF" BaseMedium="#A7AFBB"
+                BaseMediumLow="#757575" BaseLow="#383B42" AltHigh="#18191C"
+                ChromeLow="#18191C" ChromeMedium="#23272A" ChromeMediumLow="#303339"
+                ChromeHigh="#4F5864" ChromeDisabledHigh="#202327" ChromeDisabledLow="#757575" />
+        </FluentTheme.Palettes>
+    </FluentTheme>
+
+    <Style Selector="Window">
+        <Setter Property="Background" Value="{DynamicResource OttoAppBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style Selector="TextBlock.muted, SelectableTextBlock.muted">
+        <Setter Property="Foreground" Value="{DynamicResource OttoMutedForegroundBrush}" />
+    </Style>
+    <Style Selector="TextBlock.heading">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+    <Style Selector="TextBlock.success">
+        <Setter Property="Foreground" Value="{DynamicResource OttoSuccessBrush}" />
+    </Style>
+    <Style Selector="TextBlock.warning">
+        <Setter Property="Foreground" Value="{DynamicResource OttoWarningBrush}" />
+    </Style>
+    <Style Selector="TextBlock.error">
+        <Setter Property="Foreground" Value="{DynamicResource OttoErrorBrush}" />
+    </Style>
+    <Style Selector="TextBlock.info">
+        <Setter Property="Foreground" Value="{DynamicResource OttoInfoBrush}" />
+    </Style>
+    <Style Selector="Border.card">
+        <Setter Property="Background" Value="{DynamicResource OttoSurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource OttoBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource OttoCardCornerRadius}" />
+        <Setter Property="Padding" Value="20" />
+    </Style>
+
+    <Style Selector="Button, ToggleButton, RepeatButton">
+        <Setter Property="CornerRadius" Value="{DynamicResource OttoControlCornerRadius}" />
+        <Setter Property="Padding" Value="12,7" />
+    </Style>
+    <Style Selector="Button.primary">
+        <Setter Property="Background" Value="{DynamicResource OttoAccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoAccentForegroundBrush}" />
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource OttoAccentHoverBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OttoAccentForegroundBrush}" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource OttoAccentPressedBrush}" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource OttoDisabledBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OttoDisabledForegroundBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="Button.success">
+        <Setter Property="Background" Value="{DynamicResource OttoSuccessBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        <Style Selector="^:pointerover /template/ ContentPresenter, ^:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource OttoSuccessBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="Button.info">
+        <Setter Property="Background" Value="{DynamicResource OttoInfoBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        <Style Selector="^:pointerover /template/ ContentPresenter, ^:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource OttoInfoBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="Button.warning">
+        <Setter Property="Background" Value="{DynamicResource OttoWarningBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        <Style Selector="^:pointerover /template/ ContentPresenter, ^:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource OttoWarningBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="Button.danger">
+        <Setter Property="Background" Value="{DynamicResource OttoErrorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        <Style Selector="^:pointerover /template/ ContentPresenter, ^:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource OttoErrorBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource OttoOnStatusBrush}" />
+        </Style>
+    </Style>
+    <Style Selector="Button.success:disabled /template/ ContentPresenter, Button.info:disabled /template/ ContentPresenter, Button.warning:disabled /template/ ContentPresenter, Button.danger:disabled /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource OttoDisabledBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoDisabledForegroundBrush}" />
+    </Style>
+    <Style Selector="CheckBox, RadioButton, ToggleSwitch">
+        <Setter Property="Foreground" Value="{DynamicResource OttoControlForegroundBrush}" />
+    </Style>
+    <Style Selector="TextBox, NumericUpDown, AutoCompleteBox, ComboBox, CalendarDatePicker, DatePicker, TimePicker">
+        <Setter Property="Background" Value="{DynamicResource OttoControlBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoControlForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource OttoBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource OttoControlCornerRadius}" />
+    </Style>
+    <Style Selector="TextBox:focus, NumericUpDown:focus-within, AutoCompleteBox:focus-within, ComboBox:focus">
+        <Setter Property="BorderBrush" Value="{DynamicResource OttoFocusBorderBrush}" />
+    </Style>
+    <Style Selector="Slider, ProgressBar">
+        <Setter Property="Foreground" Value="{DynamicResource OttoAccentBrush}" />
+    </Style>
+
+    <Style Selector="ListBox, TreeView, TabControl, Calendar, Expander, GroupBox">
+        <Setter Property="Background" Value="{DynamicResource OttoSurfaceBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource OttoBorderBrush}" />
+    </Style>
+    <Style Selector="ListBoxItem, TreeViewItem, TabItem">
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+    </Style>
+    <!-- A property trigger takes precedence over Fluent's BorderBrush template bindings. -->
+    <Style Selector="CalendarItem /template/ Border#BackgroundLayer[IsVisible=True]">
+        <Setter Property="Background" Value="{DynamicResource OttoSurfaceBrush}" />
+    </Style>
+    <Style Selector="CalendarItem /template/ Grid#PART_YearView[IsVisible=True]">
+        <Setter Property="Background" Value="{DynamicResource OttoSurfaceBrush}" />
+    </Style>
+    <Style Selector="Menu, ContextMenu">
+        <Setter Property="Background" Value="{DynamicResource OttoSurfaceBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+    </Style>
+    <Style Selector="MenuItem">
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+    </Style>
+    <Style Selector="ToolTip">
+        <Setter Property="Background" Value="{DynamicResource OttoRaisedBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource OttoBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource OttoControlCornerRadius}" />
+    </Style>
+    <Style Selector="Separator">
+        <Setter Property="Background" Value="{DynamicResource OttoBorderBrush}" />
+    </Style>
+    <Style Selector="GridSplitter">
+        <Setter Property="Background" Value="{DynamicResource OttoBorderBrush}" />
+    </Style>
+
+    <Style Selector="TableView">
+        <Setter Property="Background" Value="{DynamicResource OttoSurfaceBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource OttoBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="TableViewColumnHeader">
+        <Setter Property="Background" Value="{DynamicResource OttoRaisedBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+    </Style>
+    <Style Selector="TableViewRow:selected">
+        <Setter Property="Background" Value="{DynamicResource OttoSelectedBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource OttoForegroundBrush}" />
+    </Style>
+</Styles>

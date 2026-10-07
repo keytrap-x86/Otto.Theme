@@ -1,4 +1,4 @@
-﻿using Otto.Theme.Tools.Helper;
+using Otto.Theme.Tools.Helper;
 
 using System;
 using System.Windows;
@@ -19,6 +19,10 @@ namespace Otto.Theme.Interactivity
             }
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
     }
 }

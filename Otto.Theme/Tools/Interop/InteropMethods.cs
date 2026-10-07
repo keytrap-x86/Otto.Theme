@@ -1,4 +1,4 @@
-﻿using Otto.Theme.Tools.Interop.Handle;
+using Otto.Theme.Tools.Interop.Handle;
 
 using System;
 using System.ComponentModel;
@@ -9,7 +9,6 @@ using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Security;
-using System.Security.Permissions;
 using System.Text;
 using System.Threading;
 
@@ -24,7 +23,6 @@ namespace Otto.Theme.Tools.Interop
         internal static readonly IntPtr HRGN_NONE = new IntPtr(-1);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
-        [ResourceExposure(ResourceScope.None)]
         internal static extern int RegisterWindowMessage(string msg);
 
         [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
@@ -100,7 +98,6 @@ namespace Otto.Theme.Tools.Interop
         internal static extern bool InsertMenu(IntPtr hMenu, int wPosition, int wFlags, int wIDNewItem, string lpNewItem);
 
         [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, EntryPoint = "DestroyMenu", CharSet = CharSet.Auto)]
-        [ResourceExposure(ResourceScope.None)]
         internal static extern bool IntDestroyMenu(HandleRef hMenu);
 
         [SecurityCritical]
@@ -469,14 +466,8 @@ namespace Otto.Theme.Tools.Interop
         internal static extern bool BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
 
         [DllImport(InteropValues.ExternDll.User32)]
-        [ResourceExposure(ResourceScope.None)]
         internal static extern bool EnableWindow(IntPtr hWnd, bool enable);
-
-        [ReflectionPermission(SecurityAction.Assert, Unrestricted = true), SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)]
         internal static object PtrToStructure(IntPtr lparam, Type cls) => Marshal.PtrToStructure(lparam, cls);
-
-        [ReflectionPermission(SecurityAction.Assert, Unrestricted = true),
-         SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)]
         internal static void PtrToStructure(IntPtr lparam, object data) => Marshal.PtrToStructure(lparam, data);
 
         [DllImport(InteropValues.ExternDll.Shell32, CallingConvention = CallingConvention.StdCall)]
@@ -551,9 +542,6 @@ namespace Otto.Theme.Tools.Interop
 
                 private readonly IntPtr unhook;
             }
-
-            [ResourceExposure(ResourceScope.None)]
-            [ResourceConsumption(ResourceScope.AppDomain, ResourceScope.AppDomain)]
             [SuppressMessage("Microsoft.Performance", "CA1804:RemoveUnusedLocals")]
             private static void Initialize()
             {
@@ -574,15 +562,9 @@ namespace Otto.Theme.Tools.Interop
                     currentDomain.DomainUnload += OnProcessExit;
                 }
             }
-
-            [PrePrepareMethod]
-            [ResourceExposure(ResourceScope.AppDomain)]
-            [ResourceConsumption(ResourceScope.AppDomain)]
             private static void OnProcessExit(object sender, EventArgs e) => Shutdown();
 
             [SuppressMessage("Microsoft.Reliability", "CA2001:AvoidCallingProblematicMethods")]
-            [ResourceExposure(ResourceScope.AppDomain)]
-            [ResourceConsumption(ResourceScope.AppDomain)]
             private static void Shutdown()
             {
                 if (Initialized)
@@ -606,7 +588,6 @@ namespace Otto.Theme.Tools.Interop
             }
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipImageGetFrameDimensionsCount(HandleRef image, out int count);
 
             internal static Exception StatusException(int status)
@@ -639,39 +620,30 @@ namespace Otto.Theme.Tools.Interop
             }
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipImageGetFrameDimensionsList(HandleRef image, IntPtr buffer, int count);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipImageGetFrameCount(HandleRef image, ref Guid dimensionId, int[] count);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipGetPropertyItemSize(HandleRef image, int propid, out int size);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipGetPropertyItem(HandleRef image, int propid, int size, IntPtr buffer);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.Machine)]
             internal static extern int GdipCreateHBITMAPFromBitmap(HandleRef nativeBitmap, out IntPtr hbitmap, int argbBackground);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipImageSelectActiveFrame(HandleRef image, ref Guid dimensionId, int frameIndex);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.Machine)]
             internal static extern int GdipCreateBitmapFromFile(string filename, out IntPtr bitmap);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipImageForceValidation(HandleRef image);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, EntryPoint = "GdipDisposeImage", CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             private static extern int IntGdipDisposeImage(HandleRef image);
 
             internal static int GdipDisposeImage(HandleRef image)
@@ -682,42 +654,33 @@ namespace Otto.Theme.Tools.Interop
             }
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.Process)]
             private static extern int GdiplusStartup(out IntPtr token, ref StartupInput input, out StartupOutput output);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipGetImageRawFormat(HandleRef image, ref Guid format);
 
             [DllImport(InteropValues.ExternDll.User32)]
             internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref InteropValues.WINCOMPATTRDATA data);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.Machine)]
             internal static extern int GdipCreateBitmapFromStream(InteropValues.IStream stream, out IntPtr bitmap);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.Machine)]
             internal static extern int GdipCreateBitmapFromHBITMAP(HandleRef hbitmap, HandleRef hpalette, out IntPtr bitmap);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipGetImageEncodersSize(out int numEncoders, out int size);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipGetImageDecodersSize(out int numDecoders, out int size);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipGetImageDecoders(int numDecoders, int size, IntPtr decoders);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipGetImageEncoders(int numEncoders, int size, IntPtr encoders);
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
-            [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipSaveImageToStream(HandleRef image, InteropValues.IStream stream, ref Guid classId, HandleRef encoderParams);
 
             [DllImport(InteropValues.ExternDll.NTdll)]

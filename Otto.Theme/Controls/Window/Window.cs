@@ -1,4 +1,4 @@
-﻿
+
 using Otto.Theme.Data;
 using Otto.Theme.Tools.Extension;
 using Otto.Theme.Tools.Helper;
@@ -97,7 +97,7 @@ namespace Otto.Theme.Controls
 
         static Window()
         {
-            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>(ResourceToken.WindowWin10)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(typeof(Window)));
         }
 
         public Window()

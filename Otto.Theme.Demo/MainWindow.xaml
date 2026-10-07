@@ -1,89 +1,145 @@
-﻿<kt:GlowWindow
-    x:Class="Otto.Theme.Demo.MainWindow"
+<kt:GlowWindow x:Class="Otto.Theme.Demo.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:kt="clr-namespace:Otto.Theme.Controls;assembly=Otto.Theme"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wm="clr-namespace:Otto.Theme.Controls.Watermark;assembly=Otto.Theme"
-    Title="MainWindow"
-    Width="743"
-    Height="416"
-    MaxHeight="430"
-    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
-    FontSize="14"
-    ResizeMode="CanMinimize"
-    Style="{StaticResource GlowWindow}"
-    Topmost="True"
-    WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
-    <DockPanel LastChildFill="False">
-        <TextBlock
-            x:Name="textBlock"
-            Margin="10"
-            HorizontalAlignment="Center"
-            DockPanel.Dock="Top"
-            Foreground="{DynamicResource PrimaryBrush}"
-            Text="Demo" />
-        <ProgressBar
-            Width="350"
-            DockPanel.Dock="Top"
-            Foreground="{DynamicResource SuccessBrush}"
-            Value="55" Height="26" Margin="194,0,193,0" />
-        <kt:DropZone
-            Width="290"
-            Height="140"
-            Margin="10,60,10,0"
-            kt:PopupService.Pop="{Binding RelativeSource={RelativeSource Self}, Path=AllowedExtensions}"
-            AllowedExtensions=".mp4, .png"
-            DockPanel.Dock="Top"
-            TextWhenAllowedExtension="Drop the file baby ♥"
-            TextWhenDisallowedExtension="Nope, can't take this kind of file :'(" />
-        <WrapPanel
-            
-            Margin="15"
-            HorizontalAlignment="Center"
-            DockPanel.Dock="Top"
-            Orientation="Horizontal">
-            <Button
-                Margin="0,0,10,0"
-                kt:PopupService.Pop="Hey"
-                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
-                Content="Info"
-                Style="{StaticResource Info}" />
-            <Button
-                Margin="0,0,10,0"
-                kt:PopupService.Pop="Hey"
-                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
-                Content="InfoFilled"
-                Style="{StaticResource InfoFilled}" />
-            <Button
-                Margin="0,0,10,0"
-                kt:PopupService.Pop="Hey"
-                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
-                Content="ErrorFilled"
-                Style="{StaticResource ErrorFilled}" />
-            <Button
-                Margin="0,0,10,0"
-                kt:PopupService.Pop="Hey"
-                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
-                Content="SuccessFilled"
-                Style="{StaticResource SuccessFilled}" />
-            <Button
-                Margin="0,0,10,0"
-                kt:PopupService.Pop="Hey"
-                kt:PopupService.PopBackgroundBrush="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}"
-                Content="WarningFilled"
-                Style="{StaticResource WarningFilled}" />
-
-            <TextBox
-                Width="200"
-                HorizontalContentAlignment="Stretch"
-                wm:WatermarkService.Watermark="Watermark" />
-
-            <ComboBox Width="150" Margin="0,10,0,0" >
-                <ComboBoxItem Content="Item 1"/>
-            </ComboBox>
-        </WrapPanel>
+    Title="Otto — galerie des contrôles" Width="1120" Height="920"
+    MinWidth="860" MinHeight="640" FontFamily="Segoe UI" FontSize="14"
+    Style="{StaticResource GlowWindow}" WindowStartupLocation="CenterScreen">
+    <DockPanel Margin="24" Background="{DynamicResource BackgroundBrush}">
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
+            <DockPanel>
+                <ToggleButton x:Name="ThemeSwitch" DockPanel.Dock="Right" HorizontalAlignment="Right" Content="Mode sombre" IsChecked="True" Checked="OnThemeModeChanged" Unchecked="OnThemeModeChanged" />
+                <TextBlock Text="Otto.Theme" FontSize="32" FontWeight="SemiBold" Foreground="{DynamicResource PrimaryTextBrush}" />
+            </DockPanel>
+            <TextBlock Text="Thèmes clair et sombre pour WPF · .NET 10" Margin="0,6,0,0" Foreground="{DynamicResource ThirdlyTextBrush}" />
+        </StackPanel>
+        <StatusBar DockPanel.Dock="Bottom" Margin="0,16,0,0">
+            <StatusBarItem Content="Prêt" />
+            <Separator />
+            <StatusBarItem Content="Essayez Tab, les flèches et la barre d’espace pour naviguer." />
+        </StatusBar>
+        <TabControl x:Name="GalleryTabs">
+            <TabItem Header="Saisie et actions">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Margin="16">
+                        <GroupBox Header="Boutons" Margin="0,0,0,16">
+                            <StackPanel>
+                                <WrapPanel>
+                                    <Button Content="Action" Margin="0,0,8,8" Click="OnActionClick" />
+                                    <Button Content="Information" Style="{StaticResource InfoFilled}" Margin="0,0,8,8" />
+                                    <Button Content="Succès" Style="{StaticResource SuccessFilled}" Margin="0,0,8,8" />
+                                    <Button Content="Attention" Style="{StaticResource WarningFilled}" Margin="0,0,8,8" />
+                                    <Button Content="Erreur" Style="{StaticResource ErrorFilled}" Margin="0,0,8,8" />
+                                    <Button Content="Désactivé" IsEnabled="False" Margin="0,0,8,8" />
+                                </WrapPanel>
+                                <TextBlock x:Name="ActionFeedback" Text="Les contrôles conservent leurs comportements WPF." />
+                            </StackPanel>
+                        </GroupBox>
+                        <Grid Margin="0,0,0,16">
+                            <Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="16" /><ColumnDefinition /></Grid.ColumnDefinitions>
+                            <GroupBox Header="Champs de saisie">
+                                <StackPanel>
+                                    <Label Content="_Nom" Target="{Binding ElementName=NameInput}" />
+                                    <TextBox x:Name="NameInput" wm:WatermarkService.Watermark="Votre nom" Margin="0,0,0,10" />
+                                    <Label Content="Mot de _passe" Target="{Binding ElementName=PasswordInput}" />
+                                    <PasswordBox x:Name="PasswordInput" Password="OttoTheme" Margin="0,0,0,10" />
+                                    <TextBox Text="Lecture seule" IsReadOnly="True" Margin="0,0,0,10" />
+                                    <TextBox Text="Champ désactivé" IsEnabled="False" />
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox Grid.Column="2" Header="Choix et options">
+                                <StackPanel>
+                                    <ComboBox SelectedIndex="0" Margin="0,0,0,12">
+                                        <ComboBoxItem Content="Thème sombre" /><ComboBoxItem Content="Accent bleu" /><ComboBoxItem Content="Accent vert" />
+                                    </ComboBox>
+                                    <ComboBox IsEditable="True" Text="Choix modifiable" Margin="0,0,0,12"><ComboBoxItem Content="Première option" /></ComboBox>
+                                    <CheckBox Content="Notifications activées" IsChecked="True" Margin="0,0,0,8" />
+                                    <CheckBox Content="État indéterminé" IsThreeState="True" IsChecked="{x:Null}" Margin="0,0,0,8" />
+                                    <WrapPanel Margin="0,0,0,12">
+                                        <RadioButton Content="Personnel" GroupName="Account" IsChecked="True" Margin="0,0,20,0" />
+                                        <RadioButton Content="Équipe" GroupName="Account" />
+                                    </WrapPanel>
+                                    <WrapPanel><ToggleButton Content="Option active" IsChecked="True" Margin="0,0,8,0" /><ToggleButton Content="Désactivé" IsEnabled="False" /></WrapPanel>
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+                        <GroupBox Header="Valeurs et progression">
+                            <Grid>
+                                <Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="40" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="Intensité" Margin="0,0,0,8" />
+                                    <Slider x:Name="Intensity" Minimum="0" Maximum="100" Value="65" TickFrequency="10" TickPlacement="BottomRight" IsSnapToTickEnabled="True" />
+                                    <ProgressBar Value="{Binding Value, ElementName=Intensity}" Maximum="100" Height="24" Margin="0,14,0,8" Foreground="{DynamicResource SuccessBrush}" />
+                                    <ProgressBar IsIndeterminate="True" Height="12" Foreground="{DynamicResource PrimaryBrush}" />
+                                </StackPanel>
+                                <Slider Grid.Column="2" Orientation="Vertical" Height="110" Minimum="0" Maximum="100" Value="40" TickPlacement="BottomRight" TickFrequency="20" />
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Listes et données">
+                <Grid Margin="16">
+                    <Grid.RowDefinitions><RowDefinition Height="250" /><RowDefinition Height="16" /><RowDefinition /></Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="240" /><ColumnDefinition Width="16" /><ColumnDefinition /></Grid.ColumnDefinitions>
+                    <GridSplitter Grid.Column="1" Grid.RowSpan="3" Width="5" HorizontalAlignment="Center" VerticalAlignment="Stretch" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" />
+                    <GroupBox Header="ListBox">
+                        <ListBox SelectedIndex="1" SelectionMode="Extended"><ListBoxItem Content="Tableau de bord" /><ListBoxItem Content="Projets" /><ListBoxItem Content="Messages" /><ListBoxItem Content="Archives" /><ListBoxItem Content="Indisponible" IsEnabled="False" /></ListBox>
+                    </GroupBox>
+                    <GroupBox Grid.Column="2" Header="ListView / GridView">
+                        <ListView ItemsSource="{Binding Projects}" SelectedIndex="0"><ListView.View><GridView>
+                            <GridViewColumn Header="Projet" DisplayMemberBinding="{Binding Name}" Width="210" />
+                            <GridViewColumn Header="Statut" DisplayMemberBinding="{Binding Status}" Width="140" />
+                            <GridViewColumn Header="Progression" DisplayMemberBinding="{Binding Progress}" Width="100" />
+                        </GridView></ListView.View></ListView>
+                    </GroupBox>
+                    <GroupBox Grid.Row="2" Header="TreeView">
+                        <TreeView><TreeViewItem Header="Otto.Theme" IsExpanded="True"><TreeViewItem Header="Contrôles" IsExpanded="True"><TreeViewItem Header="Saisie" /><TreeViewItem Header="Navigation" /><TreeViewItem Header="Données" /></TreeViewItem><TreeViewItem Header="Ressources" /><TreeViewItem Header="Documentation" /></TreeViewItem></TreeView>
+                    </GroupBox>
+                    <GroupBox Grid.Row="2" Grid.Column="2" Header="DataGrid · tri, sélection et édition">
+                        <DataGrid ItemsSource="{Binding Projects}" AutoGenerateColumns="False" CanUserAddRows="False" SelectedIndex="0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn ElementStyle="{StaticResource DataGridTextElementStyle}" EditingElementStyle="{StaticResource DataGridTextEditingStyle}" Header="Projet" Binding="{Binding Name}" Width="*" />
+                                <DataGridTextColumn ElementStyle="{StaticResource DataGridTextElementStyle}" EditingElementStyle="{StaticResource DataGridTextEditingStyle}" Header="Statut" Binding="{Binding Status}" Width="140" />
+                                <DataGridTextColumn ElementStyle="{StaticResource DataGridTextElementStyle}" EditingElementStyle="{StaticResource DataGridTextEditingStyle}" Header="%" Binding="{Binding Progress}" Width="60" />
+                                <DataGridCheckBoxColumn Header="Actif" Binding="{Binding Active}" Width="60" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dates et contenu">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <Grid Margin="16">
+                        <Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="16" /><ColumnDefinition /></Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <GroupBox Header="Dates" Margin="0,0,0,16">
+                                <StackPanel>
+                                    <DatePicker SelectedDate="{Binding SelectedDate}" Margin="0,0,0,16" />
+                                    <Calendar SelectedDate="{Binding SelectedDate}" DisplayDate="{Binding Today, Mode=OneWay}" HorizontalAlignment="Left" />
+                                    <DatePicker IsEnabled="False" Margin="0,16,0,0" />
+                                </StackPanel>
+                            </GroupBox>
+                            <Expander Header="Options avancées" IsExpanded="True"><TextBlock Text="Les panneaux s’ouvrent au clavier et à la souris." TextWrapping="Wrap" /></Expander>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <GroupBox Header="Texte enrichi" Margin="0,0,0,16">
+                                <RichTextBox Height="160"><FlowDocument><Paragraph><Bold>Bienvenue dans Otto.</Bold></Paragraph><Paragraph>Modifiez ce texte, sélectionnez-le et utilisez les raccourcis habituels.</Paragraph></FlowDocument></RichTextBox>
+                            </GroupBox>
+                            <GroupBox Header="Menus et barre d’outils" Margin="0,0,0,16">
+                                <StackPanel>
+                                    <Menu Margin="0,0,0,8"><MenuItem Header="_Fichier"><MenuItem Header="_Nouveau" Click="OnActionClick" /><MenuItem Header="_Exporter"><MenuItem Header="PNG" /><MenuItem Header="XAML" /></MenuItem><Separator /><MenuItem Header="Option cochée" IsCheckable="True" IsChecked="True" /></MenuItem><MenuItem Header="_Édition"><MenuItem Command="Copy" /><MenuItem Command="Paste" /></MenuItem></Menu>
+                                    <ToolBarTray><ToolBar><Button Content="Nouveau" ToolTip="Créer un élément" Click="OnActionClick" /><Separator /><ToggleButton Content="Épingler" /><Button Content="Supprimer" IsEnabled="False" /></ToolBar></ToolBarTray>
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox Header="Glisser-déposer et info-bulles">
+                                <kt:DropZone Height="120" AllowedExtensions=".png, .jpg" Text="Déposez une image ici" TextWhenAllowedExtension="Image acceptée" TextWhenDisallowedExtension="Utilisez une image PNG ou JPG" ToolTip="Formats acceptés : PNG et JPG" />
+                            </GroupBox>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
     </DockPanel>
 </kt:GlowWindow>

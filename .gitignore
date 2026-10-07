@@ -185,6 +185,9 @@ publish/
 # Note: Comment the next line if you want to checkin your web deploy settings,
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
+# These local folder profiles contain no deployment credentials.
+!Otto.Theme.Avalonia.Demo/Properties/PublishProfiles/NativeAot.pubxml
+!Otto.Theme.Avalonia.Demo/Properties/PublishProfiles/FolderProfile.pubxml
 *.publishproj
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
